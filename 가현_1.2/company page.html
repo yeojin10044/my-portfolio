@@ -23,6 +23,16 @@
          video.play();
        }
 
+       // 더블클릭 시 동영상 종료 후 페이지로 이동
+       $(document).on("dblclick", function () {
+         // 동영상을 끝으로 이동시킴
+         video.currentTime = video.duration;
+
+         // 페이지를 보이게 하거나 다른 동작 수행
+         $("#video-container").fadeOut();
+         $("#main-container").fadeIn();
+       });
+
          //동영상 종료 후 일정시간 뒤 페이지 보이기
          setTimeout(function () {
            $("#video-container").fadeOut();
