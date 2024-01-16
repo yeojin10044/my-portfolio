@@ -157,11 +157,12 @@ header{
     text-decoration: none;
 }
 .pro_title a{
+    color: white;
     font-weight: bold;
     text-decoration: none;
 }
 .pro_title a:visited{
-    color: #da3131;
+    color: #ffffff;
 
 }
 
