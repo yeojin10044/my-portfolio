@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
   <title> :: COMPANY :: </title>
 
@@ -16,7 +17,6 @@
      function playVideo() {
        $("#video-container").fadeIn();
        var video = $("#video")[0];
-
 
        //브라우저 자동재생 정책 문제로 사용자 상호 작용 후 재생 가능
        //사용자가 페이지 클릭 후 영상 재생
@@ -54,25 +54,38 @@
            .animate({opacity: 1}, 1000);
  });
 
+ // //챗봇 열기_ver1.새창으로열기
+ //   $(document).ready(function () {
+ //     document.getElementById("chatbot").addEventListener("click", function () {
+ //       window.location.href = "chatbot_가현.html";
+ //     });
+ //   });
 
-   function handleScroll() {
-     $(".private").each(function () {
-       var elementTop = $(this).offset().top;
-       var windowHeight = $(window).height();
-       var scrollPosition = $(window).scrollTop();
+// 챗봇 열기_ver2.플로팅
+   $(document).ready(function () {
 
-       if (scrollPosition > elementTop - windowHeight + 50) {
-         $(this).animate({ opacity: 1 }, 1000);
-       }
+     document.getElementById("chatbot").addEventListener("click", function () {
+       //모달 보이기
+       // 외부 HTML 파일을 가져와서 모달 내의 chatbotContent에 추가
+       fetch('chatbot_가현.html')
+               .then(response => response.text())
+               .then(html => {
+                 document.getElementById('chatbotContent').innerHTML = html;
+               });
+
+       document.getElementById("chatbotModal").style.display = "block";
      });
-   }
 
-   $(window).on("scroll", function () {
-     setTimeout(handleScroll,5000);
+     //모달 닫기 버튼 클릭 이벤트 처리
+     document.getElementById("closeModal").addEventListener("click", function () {
+       //모달 닫기
+       document.getElementById("chatbotModal").style.display = "none";
+     });
+
    });
 
-   handleScroll();
-  </script>
+   </script>
+
 </head>
 <body>
  <div id="video-container">
@@ -113,7 +126,7 @@
 
     <div class="private">
       <div class="comp-title">
-        <h1>"NATIONAL GEOGRAPH" is...</h1>
+        <p>"NATIONAL GEOGRAPH" is...</p>
       </div>
       <!--정보제공란-->
       <div class="content">
@@ -173,6 +186,17 @@
       </div>
     </div>
 
+          <!------챗봇플로팅------>
+          <button type="button" id="chatbot">
+              <img src="img/chatbot.png" width="50" height="50" alt="챗봇">
+             <!--팝업형태로 띄우는 코드-->
+            <!--onclick=window.open('chatbot_가현.html','_blank',"width=350,height=380,left=1500,top=150");>-->
+          </button>
+        <div id="chatbotModal" class="modal">
+          <div id="chatbotContent"></div>
+          <button id="closeModal">닫기</button>
+        </div>
+
 
   </div>
    <footer id ="footerWrap">
@@ -204,34 +228,7 @@
      </div>
    </footer>
 </div>
-<!--<footer id ="footerWrap">-->
-<!--  <div class = "footer">-->
-<!--    <div class="notice">-->
-<!--      <h3>공지사항</h3></div>-->
-<!--    <ul class="footInfo">-->
-<!--      <li><a href="#">이용약관</a></li>-->
-<!--      <li><a href="#">개인정보처리방침</a></li>-->
-<!--      <li><a href="#">협업/제휴/협찬(문의:tetere@naver.com></a></li>-->
-<!--    </ul>-->
-<!--    <div class="foot">-->
-<!--      <dl class="sns">-->
-<!--        <dt>sns</dt>-->
-<!--        <a href="#"><img src=images/fb_icon.png alt ="fb"></a>-->
-<!--        <a href="#"><img src=images/insta_icon.png alt ="insta"></a>-->
-<!--        <a href="#"><img src=images/ytb_icon.png alt ="tv"></a>-->
-<!--      </dl>-->
-<!--      <dl class="csCenter">-->
-<!--        <dt>고객센터</dt>-->
-<!--        <dd>전화문의-->
-<!--          <strong>1333-3333</strong></dd>-->
-<!--        <span>*월~금 10:00-17:00/점심13:00-14:00(토/일,공휴일은 휴무)</span>-->
-<!--        <span class="ps">(전화연결이 되지않을때에는 게시판으로 문의 부탁드립니다.)</span>-->
 
-<!--      </dl>-->
-<!--    </div>-->
-
-<!--  </div>-->
-<!--</footer>-->
 <script>
   //DOM이 완전히 로드 된 후에 스크립트 진행이 진행되도록 <body>의 끝에 위치
   //HISTORY 차트
@@ -257,7 +254,7 @@
   //   data.push({ x : i, y : prev });
   // }
 
-  const totalDuration = 20000; // 차트 애니매이션 지속 시간
+  const totalDuration = 10000; // 차트 애니매이션 지속 시간
   const delayBetweenPoints = totalDuration / data.length; // 각 데이터 포인트간의 딜레이
 
   const previousY = (ctx) => ctx.index ===0 ? ctx.chart.scales.y.getPixelForValue(100): ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
