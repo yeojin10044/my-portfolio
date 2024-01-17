@@ -14,6 +14,14 @@
         list-style: none;
         text-decoration: none;
     }
+    @font-face {
+        font-family: abster;
+        src: url("font/abster-webfont.woff") format("woff");
+    }
+
+    #HomeHeader h1{
+        font-family: abster;
+    }
     body {
         font-family: 'Nanum Gothic', sans-serif;
         font-size: 14px;
@@ -473,6 +481,7 @@
         font-size: 16px;
         border: 1px solid #ccc;
         width: 300px;
+        height: 300px;
         padding: 10px;
         margin-bottom: 10px;
         background-color: #ffffff;
@@ -918,7 +927,22 @@
 
 <!--        </div>-->
         <div id="textContainer2" style="display: none"></div>  <!-- 배송후 버튼 누르고 나오는 텍스트-->
-        <div id="textContainer3" style="display: none"></div> <!-- 반품 문의 버튼 누르고 나오는 텍스트-->
+        <div id="textContainer3" style="display: none">
+            먼저 수령하신 상품이 만족스럽지 못하여<br>
+                     불편드린점 죄송합니다.<br>
+                     (회수택배는 자동으로 예약되지않습니다.)<br>
+                     교환&반품택배 안내드린 우체국택배 ARS로 <br>
+                     착불 반품예약하신후 보내주세요<br>
+                     상품은 착용하지않은 새제품으로<br>
+                     입고되어야하며 상품이 포장된 비닐과<br>
+                      비닐에 부착된 상품명<br>
+                      바코드 함께 보내지 않으실경우 <br>
+                     </br>교환&반품진행이 어렵습니다.<br>
+                 -반품주소지:<br>
+                 (02000)서울00구00로271(00동)<br>
+                 서울 00우체국'// 원하는 텍스트
+
+        </div> <!-- 반품 문의 버튼 누르고 나오는 텍스트-->
         <div id="textContainer4" style="display: none"> <!-- 카드 취소 버튼 누르고 나오는 텍스트-->
             안녕하세요 고객님!<br>
 
@@ -1059,10 +1083,7 @@
 
 
 
-    <div class="chatBox3" id="chatBox3">
-        <p>dekjekfjef</p>
-        <button id="goBackButton2"><</button>
-    </div>
+
 </div>
 <script>
     $(document).ready(function () {
@@ -1128,6 +1149,8 @@
         document.querySelector('#changeOption').style.display = 'none';
         document.querySelector('#backToFirst').style.display = 'none';
         document.querySelector('.messageAction1_2').style.display = 'flex';
+        document.querySelector('#textContainer3').style.display = 'flex';
+
 
         this.classList.add('clicked');
         });<!--반품문의 버튼누르면 나머지버튼이 사라지는 코드-->
@@ -1271,34 +1294,34 @@
 
 
     }
-    function addText2() {
-        const scrollContainer = document.getElementById('textContainer3');
-        const newTextContainer = document.createElement('div');
-        newTextContainer.classList.add('text-container2');
-        scrollContainer.appendChild(newTextContainer);
-        var textContainer2 = document.getElementById('textContainer3');
-        textContainer2.style.display = 'block';
-
-        const text1= '안녕하세요 고객님!<br>' +
-            '먼저 수령하신 상품이 만족스럽지 못하여<br>' +
-            ' 불편드린점 죄송합니다.<br>' +
-            '(회수택배는 자동으로 예약되지않습니다.)<br></br>' +
-            '교환&반품택배 안내드린 우체국택배 ARS로 <br>' +
-            '착불 반품예약하신후 보내주세요<br>' +
-            '상품은 착용하지않은 새제품으로<br>' +
-            '입고되어야하며 상품이 포장된 비닐과<br> '+
-             '비닐에 부착된 상품명<br>' +
-            ' 바코드 함께 보내지 않으실경우 <br>' +
-            '</br>교환&반품진행이 어렵습니다.<br>'+
-        '-반품주소지:<br>' +
-        '(02000)서울00구00로271(00동)<br>' +
-        '서울 00우체국'// 원하는 텍스트
-
-        newTextContainer.innerHTML = text1;
-
-
-    }
-
+    // function addText2() {
+    //     const scrollContainer = document.getElementById('textContainer3');
+    //     const newTextContainer = document.createElement('div');
+    //     newTextContainer.classList.add('text-container2');
+    //     scrollContainer.appendChild(newTextContainer);
+    //     var textContainer2 = document.getElementById('textContainer3');
+    //     textContainer2.style.display = 'block';
+    //
+    //     const text1= '안녕하세요 고객님!<br>' +
+    //         '먼저 수령하신 상품이 만족스럽지 못하여<br>' +
+    //         ' 불편드린점 죄송합니다.<br>' +
+    //         '(회수택배는 자동으로 예약되지않습니다.)<br></br>' +
+    //         '교환&반품택배 안내드린 우체국택배 ARS로 <br>' +
+    //         '착불 반품예약하신후 보내주세요<br>' +
+    //         '상품은 착용하지않은 새제품으로<br>' +
+    //         '입고되어야하며 상품이 포장된 비닐과<br> '+
+    //          '비닐에 부착된 상품명<br>' +
+    //         ' 바코드 함께 보내지 않으실경우 <br>' +
+    //         '</br>교환&반품진행이 어렵습니다.<br>'+
+    //     '-반품주소지:<br>' +
+    //     '(02000)서울00구00로271(00동)<br>' +
+    //     '서울 00우체국'// 원하는 텍스트
+    //
+    //     newTextContainer.innerHTML = text1;
+    //
+    //
+    // }
+    //
 
 
 
@@ -1310,6 +1333,51 @@
 
         $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
     });
+    document.getElementById('beforeDelivery').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
+    });
+    document.getElementById('deliverOption').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
+    });
+
+    document.getElementById('switchOption').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop += 350;
+    });
+    document.getElementById('changeOption').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
+    });
+    document.getElementById('anotherItem').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop += 375;
+    });
+    document.getElementById('returnOption').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
+    });
+    document.getElementById('cancelCredit').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop += 375;
+    });
+
+
+
+
+
+
+
+
+
 
     document.getElementById('backToFirst').addEventListener('click', function () {
         // 페이지를 다시 로드하여 초기화
