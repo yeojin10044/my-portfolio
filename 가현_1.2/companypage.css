@@ -14,22 +14,22 @@ body ,html {
     /*overflow: hidden;*/
 }
 
+/*slogan 요소 안에 비디오 넣기 위해 주석처리*/
+/*#video-container {*/
+/*    position: fixed;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    z-index: 999; !*요소의 쌓임순서. 값이 클수록 다른 요소 위에 나타남*!*/
+/*}*/
 
-#video-container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 999; /*요소의 쌓임순서. 값이 클수록 다른 요소 위에 나타남*/
-}
-
-#main-container {
-    width: 2000px;
-    height: auto;
-    background-color: black;
-    display: none;
-}
+/*#main-container {*/
+/*    width: 2000px;*/
+/*    height: auto;*/
+/*    background-color: black;*/
+/*    display: none;*/
+/*}*/
 
 
 @font-face {
@@ -40,9 +40,11 @@ body ,html {
 
 
 .container {
-    width: 100%;
+    /*width: 100%;*/
+    width: 2000px;
     height: 3500px;
     background: linear-gradient(rgb(0, 0, 0, 0.8),  rgb(0, 0, 0, 0.4)), url("img/power.jpg")fixed;
+    /*background-color:black;*/
     /*background-repeat:no-repeat;*/
     background-size: cover;
     position: relative;
@@ -62,12 +64,8 @@ body ,html {
 }
 .container .header h1{
     margin-top: 15px;
-
     padding-left: 30px;
 }
-
-
-
 
 .container .header h1 a{
 
@@ -75,12 +73,12 @@ body ,html {
     /*background-color: #b45252;*/
     font-family: abster;
 }
+
 .container .sreach{
     /*background-color: #485eb9;*/
     color: white;
-
-
 }
+
 #srch {
     margin-top: 30px;
     width: 250px; /* 원하는 너비로 조정 */
@@ -90,7 +88,6 @@ body ,html {
     border: none;
     border-radius: 7px;
     background: rgba(213, 189, 189, 0.3);
-
 }
 
 .container .minNav ul li {
@@ -101,12 +98,15 @@ body ,html {
     padding-right: 7px;
     padding-left: 4px;
 }
+
 .container .minNav ul li a{
     color: #ffffff;
 }
+
 .container .minNav ul li a:hover{
     color: #07a693;
 }
+
 header{
     width: 95%;
     height: 100px;
@@ -116,22 +116,23 @@ header{
     position: fixed;
     transition: top 0.4s;
 }
+
 .header h1{
     position: relative;
     left: 100px;
     top: 25px;
 }
+
 .search{
     position: relative;
     left: 150px;
 }
+
 .minNav{
     position: relative;
     left: 170px;
     top: 15px;
 }
-
-
 
 .nav{
     /*width: 100%;*/
@@ -173,6 +174,7 @@ header{
     font-weight: 600;
     color: #f8f6f6;
 }
+
 .nav ul li a:hover {
     /*font-size: 70px;*/
     font-weight: 900;
@@ -198,7 +200,8 @@ header{
     left: 0;
     right: 0;
     position: relative;
-    margin:0 auto;
+    margin-top: 50px;
+    /*margin:0 auto;*/ /*nav와의 간격 조정으로 주석처리 */
     justify-content: center;
     text-align: center;
     opacity: 0;
@@ -241,6 +244,17 @@ header{
     /*background-color: #98bdf1;*/
 }
 
+#video-container {
+    width: 90%;
+    height: auto;
+    margin-bottom: 30px;
+    display: flex;
+    background-position: center center;
+    align-items: center;
+    justify-content: center;
+    /*background-color: #98bdf1;*/
+}
+
 .private .history{
     width: 90%;
     height: 30%;
@@ -274,6 +288,11 @@ header{
     /*background-color: #b6faee;*/
 }
 
+.tit1,
+.tit2 {
+    font-size: 30px;
+}
+
 .tit1 {
     width: 30%;
     height: 90%;
@@ -288,13 +307,26 @@ header{
 
 .txt1 {
     width: 60%;
-    height: 90%;
+    height: 80%;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: rgba(166, 152, 152, 0.2);
     /*background-color: #e5ffcf;*/
+}
+
+#typing-effect {
+    width: auto;
+    height: 5%;
+    margin-bottom: 15px;
+    font-size: 40px;
+    font-weight: bold;
+}
+#txt3-content {
+    width: auto;
+    height: 60%;
 }
 
 .tit2 {
@@ -311,7 +343,8 @@ header{
 
 .txt2 {
     width: 60%;
-    height: 90%;
+    height: 80%;
+    padding: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -342,7 +375,10 @@ header{
     height: 200px;
     object-fit: cover;
     border-radius: 60%;
-    overflow: hidden;
+    border: white;
+    border-width: 2px;
+    border-style: solid;
+    /*overflow: hidden;*/
 }
 
 #footerWrap{
@@ -373,21 +409,41 @@ header{
     right: 50px;
     width: 50px;
     height: 50px;
-    bottom: 100px;
+    bottom: 50px;
     border-radius:70%;
     /*background-color: #00ff21;*/
 }
 
-.modal {
+/*챗봇 ver2.*/
+/*.modal {*/
+/*    display: none;*/
+/*    position: fixed;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    padding: 20px;*/
+/*    background-color: #fff;*/
+/*    border: 1px solid #ccc;*/
+/*    z-index: 1000;*/
+/*}*/
+
+/*챗봇 ver3.*/
+.hidden {
     display: none;
+}
+
+#chatFrame {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    z-index: 1000;
+    bottom: 660px;
+    right: 75px;
+    transform: translate(0%, 100%);
+    padding: 10px;
+    width: 360px;
+    height: 520px;
+    background-color: #333333;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .footInfo{
