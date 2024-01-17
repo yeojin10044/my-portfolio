@@ -15,7 +15,7 @@ body {
 }
 
 #wrap {
-    width: 2000px;
+    width: 2200px;
     height: 3500px;
     justify-content: center;
     background: linear-gradient(rgba(118, 121, 128, 0.8), rgba(220, 13, 13, 0.8));
@@ -56,7 +56,7 @@ header{
 }
 
 .cbp-hrmenu {
-    width: 2000PX;
+    width: 2200PX;
     height: 60px;
     position: fixed;
     top: 130px;
@@ -541,7 +541,7 @@ img{
 
 .nav{
     /*width: 100%;*/
-    width: 2000px;
+    width: 2200px;
     /*margin-left: 100px;*/
     /*margin-left: 10%;*/
     height: 80px;
@@ -584,7 +584,7 @@ img{
     color: #2ad2b8;
 }
 #footerWrap{
-    width: 2000px;
+    width: 2200px;
     height: 530px;
     background-color: black;
     position: relative;
@@ -687,4 +687,25 @@ img{
     position: relative;
     top: -53px;
     left: 300px;
+}
+#chatFrame{
+    position: fixed;
+    bottom: 660px;
+    right: 65px;
+    transform: translate(0%,100%);
+    padding: 10px;
+    width: 400px;
+    height: 620px;
+    background-color: #333333;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#chatBot{
+    position: fixed;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    bottom: 50px;
+    border-radius: 70%;
 }

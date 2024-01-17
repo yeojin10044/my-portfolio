@@ -143,6 +143,16 @@ $(document).ready(function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    function OpenChat(){
+        var chatFrame = document.getElementById('chatFrame');
+        chatFrame.classList.toggle('hidden');
+    }
+
+    function toggleChat(){
+        var chatFrame = document.getElementById('chatFrame');
+        chatFrame.classList.toggle('hidden');
+    }
+
 
 
 

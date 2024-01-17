@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.w3.org/1999/html">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Newproduct</title>
@@ -41,27 +41,10 @@
 <!--        </div>-->
 <!--    </div>-->
 
-<!--      로그인 페이지-->
 
 
 
-      <div class="mytitle">
-      <h1>Login Page</h1>
-      <h5>아이디, 비밀번호를 입력하세요</h5>
-      </div>
-
-      <p>아이디: <input type="E-mail"></p>
-      <p>비밀번호: <input type="password"></p>
-
-      <button class="mybth">Login</button>
-  </div>
-
-
-
-
-
-
-      <nav class="cbp-hrmenu">
+    <nav class="cbp-hrmenu">
         <!-- 상단 카테고리  -->
         <ul class="cate">
             <li class="cg"><a href="#">BRAND</a>
@@ -644,6 +627,13 @@
 
         </div>
     </footer>
+      <button type="button" id="chatBot" onclick="openChat()">
+          <img src="#" width="50" height="50" alt="챗봇">
+               <!--     팝업형태로 띄우는 코드-->
+          <iframe id="chatFrame" src="chat_bot.html" class="hidden"></iframe>
+      </button>
+      <div id="chatbotcontent" class="hidden"></div>
+      <button onclick="toggleChat()">닫기</button>
 
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
