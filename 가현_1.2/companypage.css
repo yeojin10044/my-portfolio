@@ -371,8 +371,36 @@ header{
     /*background-color: #811e3f;*/
 }
 
-#youtube {
+/*유튜브 ver1.
+#youtubeVideo {
     display: none;
+}
+*/
+
+/*유튜브 영상 ver2.*/
+.youtube-container {
+    position: relative;
+    display: inline-block;
+}
+
+.youtube-video{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(30%, -70%);
+    background-color: #000000;
+    border: solid;
+    border-width: 2px;
+    border-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1000;
+}
+
+.youtube-container:hover .youtube-video {
+    display: block;
 }
 
 .CEOimage {

@@ -126,21 +126,30 @@
           chatFrame.classList.toggle('hidden');
       }
 
-      // ceo 이미지 mouseover 하면 유튜브영상 재생
-      $(document).ready(function () {
-          $('.CEOimage').on('mouseover', function () {
-              // CEO 이미지를 감추기
-              $(this).hide();
-              // 유튜브 영상 보이기
-              $('.youtube-video').fadeIn();
-          });
+      // // ceo 이미지 mouseover 하면 유튜브영상 재생 ver.1
+      // $(document).ready(function () {
+      //     $('.CEOimage').on('mouseover', function () {
+      //         // CEO 이미지를 감추기
+      //         $(this).hide();
+      //         // 유튜브 영상 보이기
+      //         $('.youtube-video').fadeIn();
+      //     });
+      //
+      //    $('.youtube-video').on('mouseleave', function () {
+      //         //CEO 이미지 보이기
+      //       $('.CEOimage').show();
+      //       $(this).fadeOut();
+      //     });
+      // });
 
-         $('.youtube-video').on('mouseleave', function () {
-              //CEO 이미지 보이기
-            $('.CEOimage').show();
-            $(this).fadeOut();
-          });
-      });
+
+   // 유튜브 영상 재생 ver.2
+   function showVideo() {
+          document.getElementById("youtubeVideo").style.display = "block";
+   }
+   function hideVideo() {
+          document.getElementById("youtubeVideo").style.display = "none";
+   }
   </script>
 
 </head>
@@ -225,16 +234,19 @@
 
           <!--CEO-->
           <div class="CEO">
-            <img src="img/ceoo.jpg" alt="CEO사진" class="CEOimage">
-              <div id="youtube" class="youtube-video">
-                  <iframe
-                          width = "560"
-                          height = "315"
-                          src = "https://www.youtube.com/embed/_Q0M0zzlaxg?si=RZF-xdpePnifE3ad&amp;autoplay=1&mute=1&controls=0&loop=1&playlist=_Q0M0zzlaxg;start=15"
-                          title = "YouTube video player"
-                          frameborder = "0"
-                          allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen> </iframe>
+              <div class="youtube-container" onmouseover="showVideo()" onmouseout="hideVideo()">
+                <img src="img/ceoo.jpg" alt="CEO사진" class="CEOimage">
+                  <div id="youtubeVideo" class="youtube-video">
+                      <iframe
+                              width = "560"
+                              height = "315"
+                              src = "https://www.youtube.com/embed/_Q0M0zzlaxg?si=RZF-xdpePnifE3ad&amp;autoplay=1&mute=1&controls=0&loop=1&playlist=_Q0M0zzlaxg;start=15"
+                              title = "YouTube video player"
+                              frameborder = "0"
+                              allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowfullscreen>
+                      </iframe>
+                  </div>
               </div>
             <div class="txt3">
                 <div id="typing-effect">
