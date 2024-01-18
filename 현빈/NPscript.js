@@ -91,10 +91,9 @@ $(document).ready(function() {
     //     currentIndex4 = (currentIndex3 + 1) % $(".slider8 .slide").length;
     // }, 2000);
     $(document).ready(function () {
-        var header = $("header");
-        var menu = $(".cbp-hrmenu");
-        var sideMenu = $("#product_side_menu");
-        var footerMenu = $(".footer_fix_menu");
+        var header = $("header");   <!-- 헤더부분   -->
+        var menu = $(".cbp-hrmenu"); <!-- 상단 카테고리   -->
+        var footerMenu = $(".footer_fix_menu");  <!-- 사이드바  -->
         // var menuHeight = menu.outerHeight();
 
 
@@ -104,15 +103,10 @@ $(document).ready(function() {
             if (scroll >= 100) {
                 header.css("top", "-100px");
                 menu.css("top", "0");
-                // sideMenu.css("top", "10")
-                footerMenu.css("right","10px")}
-                // }else if (scroll >=200){
-            //     footerMenu.css("right","60px")}
-
-            else {
+                footerMenu.css("right","0")}
+                       else {
                 header.css("top", "0");
                 menu.css("top", "130px");
-                // sideMenu.css("top","10 px");
                 footerMenu.css("right","-100px");
             }
         });
@@ -133,7 +127,7 @@ $(document).ready(function() {
             } else {
                 sideMenu.css({
                     'position': 'fixed',
-                    'top': '280px'
+                    'top': '286px'
                 });
             }
         });
@@ -153,7 +147,7 @@ $(document).ready(function() {
             } else {
                 sideMenu.css({
                     'position': 'fixed',
-                    'top': '225px'
+                    'top': '520px'
 
 
                 });

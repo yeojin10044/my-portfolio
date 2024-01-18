@@ -693,8 +693,8 @@ img{
 }
 #chatFrame{
     position: fixed;
-    bottom: 660px;
-    right: 65px;
+    bottom: 640px;
+    right: 85px;
     transform: translate(0%,100%);
     padding: 10px;
     width: 405px;
@@ -706,9 +706,9 @@ img{
 }
 #chatbot{
     position: relative;
-    left: 1938px;
-    width: 100px;
-    height: 100px;
+    left: 1825px;
+    width: 70px;
+    height: 70px;
     top: 400px;
     border-radius: 70%;
 }
