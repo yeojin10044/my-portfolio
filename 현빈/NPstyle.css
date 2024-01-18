@@ -416,7 +416,7 @@ img{
     color: white;
     position: fixed;
     top: 600px;
-    right: -80px;
+    right: -120px;
     transition: right 0.8s;
 }
 .footer_fix_menu ul{
@@ -688,24 +688,27 @@ img{
     top: -53px;
     left: 300px;
 }
+.hidden{
+    display: none;
+}
 #chatFrame{
     position: fixed;
     bottom: 660px;
     right: 65px;
     transform: translate(0%,100%);
     padding: 10px;
-    width: 400px;
+    width: 405px;
     height: 620px;
     background-color: #333333;
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-#chatBot{
-    position: fixed;
-    right: 50px;
-    width: 50px;
-    height: 50px;
-    bottom: 50px;
+#chatbot{
+    position: relative;
+    left: 1938px;
+    width: 100px;
+    height: 100px;
+    top: 400px;
     border-radius: 70%;
 }
