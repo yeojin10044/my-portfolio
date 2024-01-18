@@ -7,6 +7,15 @@
 
 <body>
 <style>
+    *{
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        color: #000000;
+        list-style: none;
+        font-family: 'Noto Sans KR', sans-serif;
+
+    }
     body {
         display: flex;
         justify-content: center;
@@ -17,17 +26,27 @@
 
 
     }
+    .bigBox{
+        width: auto;
+        height: auto;
+        background-color: #ffffff;
+    }
 
     input{
         height: 35px;
         margin-bottom: 20px;
 
+
+
     }
     #remember-check{
-        width: 30px;
+        width: 20px;
         height: 30px;
         position: relative;
         top: 5px;
+
+
+
     }
 
     .mybth{
@@ -41,9 +60,12 @@
 
     }
     .box{
+        position: relative;
         border: 1px solid black;
+        top: 80px;
         width: 1100px;
-        height: 500px;
+        height: 400px;
+        left: 500px;
     }
 
     .box2{
@@ -54,9 +76,10 @@
 
     .box3{
         position: relative;
-        top: -320px;
+        top: -180px;
         left: 700px;
         font-size: 18px;
+
 
     }
 
@@ -68,8 +91,12 @@
     }
 
     .box4{
-        top: 200px;
-        left: 200px;
+        position: relative;
+        font-size: 18px;
+        top: -50px;
+        left: 8px;
+
+
     }
 
     #remember-check2{
@@ -80,14 +107,16 @@
     }
 #txt{
     width: 10px;
-    height: 1px;
+    height: 60px;
     position: relative;
-    top: 20px;
+    top: 50px;
 }
+
+
 
     .box5 {
         position: relative;
-        top: -40px;
+        top: 20px;
         left: 7px;
 
     }
@@ -95,7 +124,7 @@
     .txt2{
         height: 1px;
         position: relative;
-        top: -224px;
+        top: 200px;
         left: 65px;
 
     }
@@ -103,7 +132,7 @@
     .txt3{
         height: 1px;
         position: relative;
-        top: -120px;
+        top: -110px;
         left: 54px;
 
 
@@ -113,7 +142,7 @@
         width: 250px;
         height: 60px;
         position: relative;
-        top: -140px;
+        top: 50px;
         left: -65px;
         font-weight: bold;
         font-size: 30px;
@@ -124,7 +153,7 @@
         width: 250px;
         height: 60px;
         position: relative;
-        top: -15px;
+        top: 140px;
         left: -319px;
         font-weight: bold;
         align-items: center;
@@ -136,19 +165,19 @@
 
     .box7{
         position: relative;
-        top: 123px;
+        top: 250px;
         left: -760px;
     }
 
     .box8{
         position: relative;
-        top: 60px;
+        top: 188px;
         left: -390px;
     }
 
     .box9{
         position: relative;
-        top: -2px;
+        top: 125px;
         left: -20px;
     }
 
@@ -156,24 +185,180 @@
 
 
 
+    .bar{
+        width: 1200px;
+        /*height: 80px;*/
+    }
+    .bigBox .header{
+        /*width: 80%;*/
+        width: 1280px;
+        height: 80px;
+        /*background-color: #00ff21;*/
+        margin:0 auto;
+        margin-left: 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header{
+        position: relative;
+        width: 95%;
+        height: 100px;
+        background-color: #0e0e0e;
+        padding: 0;
+        margin: 0;
+        position: fixed;
+        transition: top 0.4s;
+    }
+
+    .container .minNav ul li {
+        display: inline-block;
+        margin: 0 10px;
+        /*background-color: red;*/
+        border-left: 3px solid #a29b9b;
+        padding-right: 7px;
+        padding-left: 4px;
+    }
+    .minNav ul li a{
+        color: #000000;
+    }
+    .minNav ul li a:hover{
+        color: #07a693;
+    }
+    .header h1{
+        position: relative;
+        left: 100px;
+        top: 25px;
+    }
 
 
+    .sreach{
+        position: relative;
+        left: 150px;
+    }
+
+    #srch {
+        margin-top: 30px;
+        width: 250px; /* 원하는 너비로 조정 */
+        height: 30px; /* 원하는 높이로 조정 */
+        padding: 5px; /* 내부 여백(padding)을 추가하여 내용이 깔끔하게 보이도록 조정할 수 있습니다. */
+        font-size: 16px; /* 원하는 글자 크기로 조정 */
+        border: none;
+        border-radius: 7px;
+        background: rgba(213, 189, 189, 0.3);
+
+    }
+
+    .minNav{
+        position: relative;
+        left: 170px;
+        top: 15px;
+    }
+    .minNav ul li {
+        display: inline-block;
+        margin: 0 10px;
+        /*background-color: red;*/
+        border-left: 3px solid #a29b9b;
+        padding-right: 7px;
+        padding-left: 4px;
+    }
+
+    .nav {
+        width: 2000px;
+        height: 80px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(rgba(224, 216, 216, 0.01), rgb(10, 0, 0), rgba(229, 197, 197, 0.01));
+        position: relative;  /* 고정 위치로 설정 */
+        top: 45px;        /* 화면 하단에 고정 */
+        /*left: 50%;        !* 화면 가로 중앙에 위치하도록 설정 *!*/
+        /*transform: translateX(10%);  !* 정확한 중앙 정렬을 위한 변환 *!*/
+        z-index: 2;
+    }
+    .nav ul li{
+        display: inline-block;
+        /*margin: 0 10px;*/
+        margin-left: 20%;
+        /*width: 3000px;*/
+        /*padding-left: 200px;*/
+        text-align: center;
+        /*background-color: #b77b7b;*/
+
+    }
+
+    .nav ul li a{
+        /*display: inline-block;*/
+        font-size: 20px;
+        font-weight: 600;
+        color: #f8f6f6;
+    }
+    .nav ul li a:hover {
+        /*font-size: 70px;*/
+        font-weight: 900;
+        color: #2ad2b8;
+    }
+
+    h6{
+        top: 500px;
+        bottom: 200px;
+
+    }
+    .id{
+        position: relative;
+        left: 20px;
+    }
 
 
 
 </style>
+<div class="bigBox">
+
+    <div class="header">
+
+
+
+        <h1><a href="HomePage_bak.html">NATIONAL<br>GEOGRAPH</a></h1>
+        <div class="sreach">
+            <input id="srch" type="text" value="검색">
+            <!--                <span>검색</span>-->
+
+
+        </div>
+        <div class="minNav">
+            <ul>
+                <li><a href="#">LOGIN</a></li>
+                <li><a href="#">SIGNUP</a></li>
+                <li><a href="mobile/newPage3.html">MOBILE</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="bar">
+            <ul>
+                <li><a href="../가현_1.2/company%20page.html">C O M P A N Y</a></li>
+                <li><a href="../현빈/NewProduct.html">S H O P</a></li>
+                <!--                <li><a href="#">운동복</a></li>-->
+            </ul>
+        </div>
+    </div>
+
+
+
+
 <div class="box">
 <div class="box2">
 <div class="mytitle">
     <h1>LOGIN PAGE</h1>
-    <h5>아이디 비밀번호를 입력하세요</h5>
+    <h6>아이디 비밀번호를 입력하세요</h6>
 </div>
 
-<p>아이디: <input type="E-mail"></p>
+    <div class="id"><p>아이디: <input type="text"></p></div>
 <p>비밀번호: <input type="password"></p>
+    <div>
     <input type="checkbox" id="remember-check">아이디 저장하기
 <button class="mybth">Login</button>
-    <div class="mobile-login_cell__body">
+        <div class="mobile-login_cell__body"></div>
 
 
 
@@ -182,26 +367,22 @@
 </div>
     <div class="box3">
         <h1>회원가입</h1>
-        <h6>아직 회원이 아니신가요?</h6>
-        <input id="remember-check1">
+
         <p id="txt"></p>
+<!--        <input id="remember-check1">-->
+
         <div class="box4">
-        </div>
+            <h6>아직 회원이 아니신가요?</h6></div>
         <div class=box5>
         <h6>아이디 혹은 비밀번호를 잊으셨나요?<br></h6>
-            <input id="remember-check2">
-            <p id="txt1"></p>
-            <div class="txt2">
+<!--            <input id="remember-check2">-->
+<!--            <p id="txt1"></p>-->
+<!--            <div class="txt2">-->
 
 
-
-
-
-                <h2>회원가입</h2>
+<!--                <h2>회원가입</h2>-->
             </div>
             <div class="txt3">
-                <h2></h2>
-
                 <button class="mybth1">회원가입</button>
                 <button class="mybth2">ID/PW 찾기</button>
 
@@ -219,29 +400,12 @@
                     <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/">
                 <img class="item-image" src="images/naver.jpg" alt="로그인"> </a></div>
 
-
-
-
-
-
-
-
-
         </div>
-
-            </div>
-
-
-
-
-
-
-            </div>
-
-
+        </div>
 
     </div>
 </div>
-
+</div>
+</div>
 </body>
 </html>
