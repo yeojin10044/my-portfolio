@@ -324,6 +324,7 @@ header{
     font-size: 40px;
     font-weight: bold;
 }
+
 #txt3-content {
     width: auto;
     height: 60%;
@@ -370,6 +371,38 @@ header{
     /*background-color: #811e3f;*/
 }
 
+/*유튜브 ver1.
+#youtubeVideo {
+    display: none;
+}
+*/
+
+/*유튜브 영상 ver2.*/
+.youtube-container {
+    position: relative;
+    display: inline-block;
+}
+
+.youtube-video{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(30%, -70%);
+    background-color: #000000;
+    border: solid;
+    border-width: 2px;
+    border-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1000;
+}
+
+.youtube-container:hover .youtube-video {
+    display: block;
+}
+
 .CEOimage {
     width: 200px;
     height: 200px;
@@ -387,31 +420,20 @@ header{
     background-color: black;
     position: relative;
 }
+
 .notice{
     text-align: left;
     margin: 0 68px 0 74px;
     width: 831px;
     height: 28px;
 }
+
 .notice h3{
     position: relative;
     top: 50px;
     left: 40px;
     color: white;
 
-}
-
-#chatbot {
-    /*position: absolute;*/
-    position: fixed;
-    /*display: flex;*/
-    /*left: 85px;*/
-    right: 50px;
-    width: 50px;
-    height: 50px;
-    bottom: 50px;
-    border-radius:70%;
-    /*background-color: #00ff21;*/
 }
 
 /*챗봇 ver2.*/
@@ -427,6 +449,19 @@ header{
 /*    z-index: 1000;*/
 /*}*/
 
+#chatbot {
+    /*position: absolute;*/
+    position: fixed;
+    /*display: flex;*/
+    /*left: 85px;*/
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    bottom: 50px;
+    border-radius:70%;
+    /*background-color: #00ff21;*/
+}
+
 /*챗봇 ver3.*/
 .hidden {
     display: none;
@@ -434,14 +469,16 @@ header{
 
 #chatFrame {
     position: fixed;
-    bottom: 660px;
+    bottom: 640px;
     right: 75px;
     transform: translate(0%, 100%);
-    padding: 10px;
+    padding: 0;
     width: 360px;
-    height: 520px;
-    background-color: #333333;
-    border: none;
+    height: 500px;
+    background-color: #474547;
+    border: solid;
+    border-color: white;
+    border-width: 1px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }

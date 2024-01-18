@@ -13,131 +13,154 @@
 
   <script>
 
-// //비디오 슬로건 요소 안에 넣기 위해 주석처리
-//    $(document).ready(function () {
-//      //동영상 재생 후 페이지 보이기
-//      function playVideo() {
-//        $("#video-container").fadeIn();
-//        var video = $("#video")[0];
-//
-//        //브라우저 자동재생 정책 문제로 사용자 상호 작용 후 재생 가능
-//        //사용자가 페이지 클릭 후 영상 재생
-//        function playAfterInteraction(){
-//          video.play();
-//        }
-//
-//        // 더블클릭 시 동영상 종료 후 페이지로 이동
-//        $(document).on("dblclick", function () {
-//          // 동영상을 끝으로 이동시킴
-//          video.currentTime = video.duration;
-//
-//          // 페이지를 보이게 하거나 다른 동작 수행
-//          $("#video-container").fadeOut();
-//          $("#main-container").fadeIn();
-//        });
-//
-//          //동영상 종료 후 일정시간 뒤 페이지 보이기
-//          setTimeout(function () {
-//            $("#video-container").fadeOut();
-//            $("#main-container").fadeIn();
-//          }, 5000);// 5초 후 페이지로 전환
-//
-//          //사용자 상호 작용 후 이벤트 리스너 제거(이벤트가 한번만 발생하도록)
-//          document.removeEventListener("mouseover", playAfterInteraction,{ once: true });
-//        };
-//
-//
-//      playVideo();
-//  });
+      // //비디오 슬로건 요소 안에 넣기 위해 주석처리
+      //    $(document).ready(function () {
+      //      //동영상 재생 후 페이지 보이기
+      //      function playVideo() {
+      //        $("#video-container").fadeIn();
+      //        var video = $("#video")[0];
+      //
+      //        //브라우저 자동재생 정책 문제로 사용자 상호 작용 후 재생 가능
+      //        //사용자가 페이지 클릭 후 영상 재생
+      //        function playAfterInteraction(){
+      //          video.play();
+      //        }
+      //
+      //        // 더블클릭 시 동영상 종료 후 페이지로 이동
+      //        $(document).on("dblclick", function () {
+      //          // 동영상을 끝으로 이동시킴
+      //          video.currentTime = video.duration;
+      //
+      //          // 페이지를 보이게 하거나 다른 동작 수행
+      //          $("#video-container").fadeOut();
+      //          $("#main-container").fadeIn();
+      //        });
+      //
+      //          //동영상 종료 후 일정시간 뒤 페이지 보이기
+      //          setTimeout(function () {
+      //            $("#video-container").fadeOut();
+      //            $("#main-container").fadeIn();
+      //          }, 5000);// 5초 후 페이지로 전환
+      //
+      //          //사용자 상호 작용 후 이벤트 리스너 제거(이벤트가 한번만 발생하도록)
+      //          document.removeEventListener("mouseover", playAfterInteraction,{ once: true });
+      //        };
+      //
+      //
+      //      playVideo();
+      //  });
 
- //타이틀 fadeIn
- $(document).ready(function () {
-   $(".comp-title").animate({opacity: 1}, 3000);
- });
+      //타이틀 fadeIn
+      $(document).ready(function () {
+          $(".comp-title").animate({opacity: 1}, 3000);
+      });
 
 
- //ceo txt 타이핑효과
- document.addEventListener('DOMContentLoaded',function () {
-     const text = document.getElementById('typing-effect').innerText; // 기존텍스트 가져오기
-     const typingSpeed = 200; // 한 글자씩 표시하는 속도조절
-     const pauseduration = 2000; // 타이핑 완료 후 일정시간 정지
+      //ceo txt 타이핑효과
+      document.addEventListener('DOMContentLoaded', function () {
+          const text = document.getElementById('typing-effect').innerText; // 기존텍스트 가져오기
+          const typingSpeed = 200; // 한 글자씩 표시하는 속도조절
 
-     let index = 0;
-     const typingContainer = document.getElementById('typing-effect');
-     typingContainer.innerText = ''; // 기존 텍스트 초기화
+          let index = 0;
+          const typingContainer = document.getElementById('typing-effect');
+          typingContainer.innerText = ''; // 기존 텍스트 초기화
 
-     function type() {
-         if (index < text.length) {
-             typingContainer.innerText += text.charAt(index);
-             index++;
-             setTimeout(type, typingSpeed);
-         } else {
-             //타이핑 끝나면 index 리셋 후 다시 시작
-             setTimeout(function () {
-                 typingContainer.innerText = '';
-                 index = 0;
-                 type();
-             }, pauseduration);
-         }
-     }
-     // 페이지 로드 후 타이핑 효과 시작
-     type();
- });
+          function type() {
+              if (index < text.length) {
+                  typingContainer.innerText += text.charAt(index);
+                  index++;
+                  setTimeout(type, typingSpeed);
+              } else {
+                  //타이핑 끝나면 index 리셋 후 다시 시작
+                  setTimeout(function () {
+                      typingContainer.innerText = '';
+                      index = 0;
+                      type();
+                  }, 2000); // 타이핑 완료 후 2초간 정지
+              }
+          }
 
- // //챗봇 열기_ver1.새창으로열기
- //   $(document).ready(function () {
- //     document.getElementById("chatbot").addEventListener("click", function () {
- //       window.location.href = "chatbot_가현.html";
- //     });
- //   });
+          // 페이지 로드 후 타이핑 효과 시작
+          type();
+      });
 
-// // 챗봇 열기_ver2.플로팅
-//    $(document).ready(function () {
-//
-//      document.getElementById("chatbot").addEventListener("click", function () {
-//        //모달 보이기
-//        // 외부 HTML 파일을 가져와서 모달 내의 chatbotContent에 추가
-//        fetch('chatbot_가현.html')
-//                .then(response => response.text())
-//                .then(html => {
-//                  document.getElementById('chatbotContent').innerHTML = html;
-//                });
-//
-//        document.getElementById("chatbotModal").style.display = "block";
-//      });
-//
-//      //모달 닫기 버튼 클릭 이벤트 처리
-//      document.getElementById("closeModal").addEventListener("click", function () {
-//        //모달 닫기
-//        document.getElementById("chatbotModal").style.display = "none";
-//      });
-//
-//    });
-//
+      // //챗봇 열기_ver1.새창으로열기
+      //   $(document).ready(function () {
+      //     document.getElementById("chatbot").addEventListener("click", function () {
+      //       window.location.href = "chatbot_가현.html";
+      //     });
+      //   });
 
-//챗봇 열기_ver3.
-function openChat () {
-    var chatFrame = document.getElementById('chatFrame');
-    chatFrame.classList.toggle('hidden');
-}
+      // // 챗봇 열기_ver2.플로팅(modal)
+      //    $(document).ready(function () {
+      //
+      //      document.getElementById("chatbot").addEventListener("click", function () {
+      //        //모달 보이기
+      //        // 외부 HTML 파일을 가져와서 모달 내의 chatbotContent에 추가
+      //        fetch('chatbot_가현.html')
+      //                .then(response => response.text())
+      //                .then(html => {
+      //                  document.getElementById('chatbotContent').innerHTML = html;
+      //                });
+      //
+      //        document.getElementById("chatbotModal").style.display = "block";
+      //      });
+      //
+      //      //모달 닫기 버튼 클릭 이벤트 처리
+      //      document.getElementById("closeModal").addEventListener("click", function () {
+      //        //모달 닫기
+      //        document.getElementById("chatbotModal").style.display = "none";
+      //      });
+      //
+      //    });
+      //
 
-function toggleChat() {
-    var chatFrame = document.getElementById('chatFrame');
-    chatFrame.classList.toggle('hidden');
-}
+      //챗봇 열기_ver3.(toggle)
+      function openChat() {
+          var chatFrame = document.getElementById('chatFrame');
+          chatFrame.classList.toggle('hidden');
+      }
 
-   </script>
+      function toggleChat() {
+          var chatFrame = document.getElementById('chatFrame');
+          chatFrame.classList.toggle('hidden');
+      }
+
+      // // ceo 이미지 mouseover 하면 유튜브영상 재생 ver.1
+      // $(document).ready(function () {
+      //     $('.CEOimage').on('mouseover', function () {
+      //         // CEO 이미지를 감추기
+      //         $(this).hide();
+      //         // 유튜브 영상 보이기
+      //         $('.youtube-video').fadeIn();
+      //     });
+      //
+      //    $('.youtube-video').on('mouseleave', function () {
+      //         //CEO 이미지 보이기
+      //       $('.CEOimage').show();
+      //       $(this).fadeOut();
+      //     });
+      // });
+
+
+   // 유튜브 영상 재생 ver.2
+   function showVideo() {
+          document.getElementById("youtubeVideo").style.display = "block";
+   }
+   function hideVideo() {
+          document.getElementById("youtubeVideo").style.display = "none";
+   }
+  </script>
 
 </head>
 <body>
-<!-- <div id="main-container">-->
-      <div class="container">
+<div class="container">
 
     <div class="header">
-      <h1><a href="../jaewoo/HomePage_bak.html">NATIONAL<br>GEOGRAPH</a></h1>
-      <div class="search">
-        <input id="srch" type="text" value="검색">
-        <!--                <span>검색</span>-->
+        <h1><a href="../jaewoo/HomePage_bak.html">NATIONAL<br>GEOGRAPH</a></h1>
+        <div class="search">
+            <input id="srch" type="text" value="검색">
+            <!--                <span>검색</span>-->
       </div>
 
       <div class="minNav">
@@ -198,7 +221,7 @@ function toggleChat() {
             </h3>
             <div class="txt2">
               <canvas id="historyChart" width="100" height="50"></canvas>
-              <p><br><br>Nulla sed ultrices quam.<br><br>
+              <p><br><br>BRAND REVENUE since start-up.<br><br>
                 Ut sit exposuere, maxibus rhonpit virna nec.<br>
                 Pellentesque feugiat dolor ante.<br>
                 Ate dictumopis ernicl emib, alipqin trueip sinpin vel.<br>
@@ -211,7 +234,20 @@ function toggleChat() {
 
           <!--CEO-->
           <div class="CEO">
-            <img src="img/ceoo.jpg" alt="CEO사진" class="CEOimage">
+              <div class="youtube-container" onmouseover="showVideo()" onmouseout="hideVideo()">
+                <img src="img/ceoo.jpg" alt="CEO사진" class="CEOimage">
+                  <div id="youtubeVideo" class="youtube-video">
+                      <iframe
+                              width = "560"
+                              height = "315"
+                              src = "https://www.youtube.com/embed/_Q0M0zzlaxg?si=RZF-xdpePnifE3ad&amp;autoplay=1&mute=1&controls=0&loop=1&playlist=_Q0M0zzlaxg;start=15"
+                              title = "YouTube video player"
+                              frameborder = "0"
+                              allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowfullscreen>
+                      </iframe>
+                  </div>
+              </div>
             <div class="txt3">
                 <div id="typing-effect">
                   <span>HELLO! EVERYONE!</span>
@@ -280,7 +316,6 @@ function toggleChat() {
 
      </div>
    </footer>
-<!--</div>-->
 
 <script>
   //DOM이 완전히 로드 된 후에 스크립트 진행이 진행되도록 <body>의 끝에 위치
