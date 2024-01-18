@@ -138,22 +138,32 @@ $(document).ready(function() {
             }
         });
     });
+    $(document).ready(function () {
+        var sideMenu = $("#chatbot");
+        var scrollTrigger = 2300; // 스크롤 위치가 얼마나 내려가면 특정 동작을 할지 결정
+
+        $(window).scroll(function () {
+            var scrollPosition = $(window).scrollTop();
+
+            if (scrollPosition >= scrollTrigger) {
+                sideMenu.css({
+                    'position': 'absolute',
+                    'top': scrollTrigger + 'px'
+                });
+            } else {
+                sideMenu.css({
+                    'position': 'fixed',
+                    'top': '225px'
+
+
+                });
+            }
+        });
+    });
 
     document.getElementById('scrollToTop').addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    function OpenChat(){
-        var chatFrame = document.getElementById('chatFrame');
-        chatFrame.classList.toggle('hidden');
-    }
-
-    function toggleChat(){
-        var chatFrame = document.getElementById('chatFrame');
-        chatFrame.classList.toggle('hidden');
-    }
-
-
 
 
 

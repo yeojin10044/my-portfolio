@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="NPstyle.css">
 </head>
+<style>
+
+</style>
 <body>
   <div id="wrap"> <!-- 전체 레이아웃 박스 -->
     <div class="header">
@@ -594,7 +597,7 @@
         <ul>
             <li class="fix_icon"><a href="#"><img src=images/footer_bar_heart_icon.png alt="A Icon"></a></li>
             <li class="fix_icon"><a href="#"><img src=images/footer_bar_basket_icon.png alt="B Icon"></a></li>
-            <li class="fix_icon"><a href="#"><img src="icon_c.png" alt="C Icon"></a></li>
+            <li class="fix_icon"><a href="#"><img src="images/footer_bar_heart_icon.png" alt="C Icon"></a></li>
             <li class="fix_icon3" id="scrollToTop"><a href="#"></a></li>
 
         </ul>
@@ -627,15 +630,37 @@
 
         </div>
     </footer>
-      <button type="button" id="chatBot" onclick="openChat()">
-          <img src="#" width="50" height="50" alt="챗봇">
-               <!--     팝업형태로 띄우는 코드-->
+      <button type="button" id="chatbot" onclick="openChat()">
+
+          <img src="images/NG_icon.jpg" width="50" height="50" alt="챗봇">
+          <!--팝업형태로 띄우는 코드-->
+          <!--onclick=window.open('chatbot_가현.html','_blank',"width=350,height=380,left=1500,top=150");>-->
           <iframe id="chatFrame" src="chat_bot.html" class="hidden"></iframe>
       </button>
-      <div id="chatbotcontent" class="hidden"></div>
-      <button onclick="toggleChat()">닫기</button>
+      <!--        <div id="chatbotModal" class="modal">-->
+<!--      <button type="button" id="exitButton" onclick="openExit()" class="hidden">-->
+<!--          <img src="#" alt="나가기">-->
+<!--      </button>-->
+
+<!--      <button onclick="toggleChat()">닫기</button>-->
+      </div>
+      <script>
+          function openChat () {
+              var chatFrame = document.getElementById('chatFrame');
+              chatFrame.classList.toggle('hidden');
+          }
+          // function openExit () {
+          //     var exitButton = document.getElementById('exitButton');
+          //     exitButton.classList.toggle('hidden');
+          // }
+          //
+          // function toggleChat() {
+          //     var chatFrame = document.getElementById('chatFrame');
+          //     chatFrame.classList.toggle('hidden');
+          // }
 
 
+      </script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="NPscript.js"></script>
 </div>

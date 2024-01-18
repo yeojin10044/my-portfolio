@@ -170,6 +170,7 @@
         height: 30px;
         color: white;
     }
+
     .user_choice ul li a{
         color: #1e1515;
         position: relative;
@@ -783,51 +784,12 @@
 
 
 
-    #chatBox3 {
-        width: 400px; /* 전체 화면의 80% 차지 */
-        height: 600px;
-        background-color: #d04747;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        overflow: hidden;
-        display: none;
-    }
+    /*======================anotherChatBot=====================================*/
 
 
+    /*======================anotherChatBot여기까지================================================*/
 
 
-
-    /*.chat-icon img{*/
-    /*    max-height: 30px;*/
-    /*    max-width: 30px;*/
-    /*    margin: auto;*/
-    /*}*/
-
-
-    /*.chat-footer {*/
-    /*    padding: 10px;*/
-    /*    display: flex;*/
-    /*    align-items: center;*/
-    /*    position: relative;*/
-    /*    top: 250px;*/
-    /*}*/
-
-    /*#userInput {*/
-    /*    flex: 1;*/
-    /*    padding: 5px;*/
-    /*    border-radius: 5px;*/
-    /*    border: 1px solid #ccc;*/
-    /*    margin-right: 10px;*/
-    /*}*/
-
-    /*button {*/
-    /*    padding: 8px;*/
-    /*    background-color: #1e1515;*/
-    /*    color: #fff;*/
-    /*    border: none;*/
-    /*    border-radius: 5px;*/
-    /*    cursor: pointer;*/
-    /*}*/
 </style>
 <body>
 
@@ -870,11 +832,11 @@
         </div>
         <nav class="user_choice">
             <ul>
-                <li><a href="#" data-section="chatBox"><img src ="images/home_icon.jpg" alt ="홈 이미지"></a></li>
-                <a href="#"><span class="home1">홈</span></a>
+                <li><a href="#" data-section="chatBox"><img class="login"  src ="images/login_icon.png" alt ="홈 이미지"></a></li>
+                <a href="#"><span class="home1">로그인</span></a>
                 <li><a href="#" data-section="chat_section">
                     <img src ="images/bottom_chat_icon.png" alt ="대화 이미지"></a></li>
-                <a href="#" id ="chatLink"><span class="home2">대화</span></a>
+                <a href="anotherChatBot.html" id ="chatLink" ><span class="home2">대화</span></a>
             </ul>
         </nav>
     </div> <!-- chatBox1끝 -->
@@ -1084,6 +1046,9 @@
 
 
 
+
+
+
 </div>
 <script>
     $(document).ready(function () {
@@ -1117,12 +1082,12 @@
 
     document.getElementById('chatLink').addEventListener('click', function () {
         // chatBox1 제거
-        document.getElementById('chatBox2').remove();
+        document.getElementById('chatBox1').remove();
         <!----------------chatbox를 특정버튼을 클릭할때마다 추가하며 기존것을 지워주는 코드--------------  -->
 
 
         // chatBox2 추가 및 표시
-        var chatBox3 = document.getElementById('chatBox3');
+        var chatBox3 = document.getElementById('anotherChatBot');
         chatBox3.style.display = 'block';
 
         document.getElementById('goBackButton2').addEventListener('click', function () {
@@ -1294,35 +1259,6 @@
 
 
     }
-    // function addText2() {
-    //     const scrollContainer = document.getElementById('textContainer3');
-    //     const newTextContainer = document.createElement('div');
-    //     newTextContainer.classList.add('text-container2');
-    //     scrollContainer.appendChild(newTextContainer);
-    //     var textContainer2 = document.getElementById('textContainer3');
-    //     textContainer2.style.display = 'block';
-    //
-    //     const text1= '안녕하세요 고객님!<br>' +
-    //         '먼저 수령하신 상품이 만족스럽지 못하여<br>' +
-    //         ' 불편드린점 죄송합니다.<br>' +
-    //         '(회수택배는 자동으로 예약되지않습니다.)<br></br>' +
-    //         '교환&반품택배 안내드린 우체국택배 ARS로 <br>' +
-    //         '착불 반품예약하신후 보내주세요<br>' +
-    //         '상품은 착용하지않은 새제품으로<br>' +
-    //         '입고되어야하며 상품이 포장된 비닐과<br> '+
-    //          '비닐에 부착된 상품명<br>' +
-    //         ' 바코드 함께 보내지 않으실경우 <br>' +
-    //         '</br>교환&반품진행이 어렵습니다.<br>'+
-    //     '-반품주소지:<br>' +
-    //     '(02000)서울00구00로271(00동)<br>' +
-    //     '서울 00우체국'// 원하는 텍스트
-    //
-    //     newTextContainer.innerHTML = text1;
-    //
-    //
-    // }
-    //
-
 
 
 
@@ -1390,6 +1326,13 @@
 
 
 
+
+
+
+
+
+
+
 </script>
 
 
@@ -1398,6 +1341,6 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<!--<script src="script.js"></script>-->
+<script src="script.js"></script>
 </body>
 </html>
