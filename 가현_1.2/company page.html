@@ -60,7 +60,6 @@
       document.addEventListener('DOMContentLoaded', function () {
           const text = document.getElementById('typing-effect').innerText; // 기존텍스트 가져오기
           const typingSpeed = 200; // 한 글자씩 표시하는 속도조절
-          const pauseduration = 2000; // 타이핑 완료 후 일정시간 정지
 
           let index = 0;
           const typingContainer = document.getElementById('typing-effect');
@@ -77,7 +76,7 @@
                       typingContainer.innerText = '';
                       index = 0;
                       type();
-                  }, pauseduration);
+                  }, 2000); // 타이핑 완료 후 2초간 정지
               }
           }
 
