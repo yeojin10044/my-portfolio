@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        color: #000000;
+        list-style: none;
+        font-family: 'Noto Sans KR', sans-serif;
+
+    }
+    @font-face {
+        font-family: abster;
+        src: url("font/abster-webfont.woff") format("woff");
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-size: 22px;
+
+
+    }
+    .header h1 a{
+        font-family: abster;
+        font-size: 32px;
+        position: relative;
+        left: 50px;
+
+    }
+
+    .bigBox{
+        width: auto;
+        height: 1000px;
+        background-color: #ffffff;
+    }
+
+    input {
+        height: 35px;
+        margin-bottom: 20px;
+
+
+    }
+
+    #remember-check {
+        width: 20px;
+        height: 30px;
+        position: relative;
+        top: 5px;
+
+
+    }
+
+    .mybth {
+        width: 50px;
+        height: 30px;
+        position: relative;
+        top: -1px;
+        background-color: black;
+        color: white;
+
+
+    }
+
+    .box {
+        position: relative;
+        border: 1px solid black;
+        top: 350px;
+        width: 1450px;
+        height: 400px;
+        left: -450px;
+    }
+
+    .box2 {
+        position: relative;
+        top: 50px;
+        left: 100px;
+    }
+
+    .box3 {
+        position: relative;
+        top: -180px;
+        left: 700px;
+        font-size: 18px;
+
+
+    }
+
+    #remember-check1 {
+        width: 230px;
+        height: 50px;
+        position: relative;
+        top: -10px;
+    }
+
+    .box4 {
+        position: relative;
+        font-size: 18px;
+        top: -50px;
+        left: 8px;
+
+
+    }
+
+    #remember-check2 {
+        width: 230px;
+        height: 50px;
+        position: relative;
+        top: -10px;
+    }
+
+    #txt {
+        width: 10px;
+        height: 60px;
+        position: relative;
+        top: 50px;
+    }
+
+
+    .box5 {
+        position: relative;
+        top: 20px;
+        left: 7px;
+
+    }
+
+    .txt2 {
+        height: 1px;
+        position: relative;
+        top: 200px;
+        left: 65px;
+
+    }
+
+    .txt3 {
+        height: 1px;
+        position: relative;
+        top: -110px;
+        left: 54px;
+
+
+    }
+
+    .mybth1 {
+        width: 250px;
+        height: 60px;
+        position: relative;
+        top: 50px;
+        left: -65px;
+        font-weight: bold;
+        font-size: 30px;
+        background-color: white;
+    }
+
+    .mybth2 {
+        width: 250px;
+        height: 60px;
+        position: relative;
+        top: 140px;
+        left: -319px;
+        font-weight: bold;
+        align-items: center;
+        font-size: 30px;
+        background-color: white;
+
+
+    }
+
+    .box7 {
+        position: relative;
+        top: 250px;
+        left: -760px;
+    }
+
+    .box8 {
+        position: relative;
+        top: 188px;
+        left: -390px;
+    }
+
+    .box9 {
+        position: relative;
+        top: 125px;
+        left: -20px;
+    }
+
+
+    .bar {
+        width: 1200px;
+        /*height: 80px;*/
+    }
+
+    .bigBox .header {
+        /*width: 80%;*/
+        width: 1280px;
+        height: 80px;
+        /*background-color: #00ff21;*/
+        margin: 0 auto;
+        margin-left: 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        top: 50px;
+    }
+
+    header {
+        width: 95%;
+        height: 100px;
+        background-color: #0e0e0e;
+        padding: 0;
+        margin: 0;
+        position: fixed;
+        transition: top 0.4s;
+    }
+
+    .bigBox .minNav ul li {
+        display: inline-block;
+        margin: 0 10px;
+        /*background-color: red;*/
+        border-left: 3px solid #a29b9b;
+        padding-right: 7px;
+        padding-left: 4px;
+    }
+
+    .minNav ul li a {
+        color: #000000;
+    }
+
+    .minNav ul li a:hover {
+        color: #07a693;
+    }
+
+    .header h1 {
+        position: relative;
+        left: 100px;
+        top: 25px;
+    }
+
+
+    .sreach {
+        position: relative;
+        left: 150px;
+    }
+
+    #srch {
+        margin-top: 30px;
+        width: 250px; /* 원하는 너비로 조정 */
+        height: 30px; /* 원하는 높이로 조정 */
+        padding: 5px; /* 내부 여백(padding)을 추가하여 내용이 깔끔하게 보이도록 조정할 수 있습니다. */
+        font-size: 16px; /* 원하는 글자 크기로 조정 */
+        border: none;
+        border-radius: 7px;
+        background: rgba(213, 189, 189, 0.3);
+        position: relative;
+        left: 60px;
+        top: 20px;
+
+    }
+
+    .minNav {
+        position: relative;
+        left: 170px;
+        top: 15px;
+
+    }
+
+    .minNav ul li {
+        display: inline-block;
+        margin: 0 10px;
+        /*background-color: red;*/
+        border-left: 3px solid #a29b9b;
+        padding-right: 7px;
+        padding-left: 4px;
+    }
+
+    .nav {
+        width: 2000px;
+        height: 80px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(rgba(224, 216, 216, 0.01), rgb(10, 0, 0), rgba(229, 197, 197, 0.01));
+        position: relative; /* 고정 위치로 설정 */
+        top: 100px; /* 화면 하단에 고정 */
+        /*left: 50%;        !* 화면 가로 중앙에 위치하도록 설정 *!*/
+        /*transform: translateX(10%);  !* 정확한 중앙 정렬을 위한 변환 *!*/
+        z-index: 2;
+    }
+
+    .nav ul li {
+        display: inline-block;
+        /*margin: 0 10px;*/
+        margin-left: 20%;
+        /*width: 3000px;*/
+        /*padding-left: 200px;*/
+        text-align: center;
+        /*background-color: #b77b7b;*/
+
+    }
+
+    .nav ul li a {
+        /*display: inline-block;*/
+        font-size: 20px;
+        font-weight: 600;
+        color: #f8f6f6;
+    }
+
+    .nav ul li a:hover {
+        /*font-size: 70px;*/
+        font-weight: 900;
+        color: #2ad2b8;
+    }
+
+    h6 {
+        top: 500px;
+        bottom: 200px;
+
+    }
+
+    .id {
+        position: relative;
+        left: 20px;
+    }
+
+    #footerWrap{
+        width: 2000px;
+        /*width: 100%;*/
+        height: 530px;
+        background-color: black;
+        /*position: relative;*/
+        /*top: 3000px;*/
+        position: absolute;
+        top: 1000px;
+    }
+    .notice{
+        text-align: left;
+        margin: 0 68px 0 74px;
+        width: 831px;
+        height: 28px;
+    }
+    .notice h3{
+        position: relative;
+        top: 50px;
+        left: 40px;
+        color: white;
+
+    }
+    .footInfo{
+        position: relative;
+        top: 80px;
+        display: flex;
+        left: 85px;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        margin: 0;
+        padding: 20px;
+        width: 1700px;
+
+    }
+    .footInfo li a{
+        margin-left: 15px;
+        color: white;
+
+
+    }
+    .footInfo li a:visited{
+        color: white;
+
+    }
+    .foot{
+        position: relative;
+        top: 100px;
+        left: 80px;
+        border-bottom: 1px solid white;
+        width: 1730px;
+        padding: 10px;
+        margin: 0;
+    }
+    .foot img{
+        margin-left: 20px;
+    }
+    .sns{
+        position: relative;
+
+    }
+    .sns dt{
+        color: black;
+        background-color: white;
+        width: 130px;
+        height: 27px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 30px;
+        /*position: relative;*/
+        /*right: 30px;*/
+        /*top: -50px;*/
+    }
+
+    .sns a{
+        margin-left: 100px;
+        /*background-color: white;*/
+        position: relative;
+        left: 80px;
+        top: -35px;
+    }
+    .sns img{
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        margin: 0;
+    }
+    .csCenter{
+        color: white;
+    }
+    .csCenter dt{
+        background-color: white;
+        color: black;
+        width: 130px;
+        height: 27px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 30px;
+
+    }
+    .csCenter dd{
+        color: white;
+        font-size: 15px;
+        position: relative;
+        top: -30px;
+        left: 160px;
+    }
+    .csCenter strong{
+        color: white;
+    }
+    .csCenter span{
+        color: white;
+        font-size: 13px ;
+        position: relative;
+        top: -53px;
+        left: 300px;
+    }
+
+    .size{
+        font-size: 15px;
+        left: 20px;
+        right: 100px;
+        top: 17px;
+        position: relative;
+    }
+
+
+</style>
+<div class="bigBox">
+
+    <div class="header">
+
+
+        <h1><a href="../jaewoo/HomePage_bak.html">NATIONAL<br>GEOGRAPH</a></h1>
+        <div class="sreach">
+            <input id="srch" type="text" value="검색">
+            <!--                <span>검색</span>-->
+
+
+        </div>
+        <div class="minNav">
+            <ul>
+                <div class="size">
+                <li><a href="#">LOGIN</a></li>
+                <li><a href="#">SIGNUP</a></li>
+                <li><a href="../jaewoo/mobile/newPage3.html">MOBILE</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="bar">
+            <ul>
+                <li><a href="../가현_1.2/company%20page.html">C O M P A N Y</a></li>
+                <li><a href="../현빈/NewProduct.html">S H O P</a></li>
+                <!--                <li><a href="#">운동복</a></li>-->
+            </ul>
+        </div>
+
+
+        <div class="box">
+            <div class="box2">
+                <div class="mytitle">
+                    <h1>LOGIN PAGE</h1>
+                    <h6>아이디 비밀번호를 입력하세요</h6>
+                </div>
+
+                <div class="id"><p>아이디: <input type="text"></p></div>
+                <p>비밀번호: <input type="password"></p>
+                <div>
+                    <input type="checkbox" id="remember-check">아이디 저장하기
+                    <button class="mybth">Login</button>
+                    <div class="mobile-login_cell__body"></div>
+
+
+                </div>
+
+            </div>
+            <div class="box3">
+                <h1>회원가입</h1>
+
+                <p id="txt"></p>
+                <!--        <input id="remember-check1">-->
+
+                <div class="box4">
+                    <h6>아직 회원이 아니신가요?</h6></div>
+                <div class=box5>
+                    <h6>아이디 혹은 비밀번호를 잊으셨나요?<br></h6>
+                    <!--            <input id="remember-check2">-->
+                    <!--            <p id="txt1"></p>-->
+                    <!--            <div class="txt2">-->
+
+
+                    <!--                <h2>회원가입</h2>-->
+                </div>
+                <div class="txt3">
+                    <button class="mybth1">회원가입</button>
+                    <button class="mybth2">ID/PW 찾기</button>
+
+
+                    <div class="box7">
+                        <a href="https://www.facebook.com/?locale=ko_KR">
+                            <img class="item-image" src="images/facebook.jpg" alt="로그인"></a></div>
+
+                    <div class="box8">
+                        <a href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fsharer.kakao.com%2Fpicker%2Flink%3Fapp_key%3D4e0f02e43248fed6c5850431ea527a61%26short_key%3Df4ce3b6d-c666-487d-8ff2-87dd380e9b33#login">
+                            <img class="item-image" src="images/koko.jpg" alt="로그인"></a></div>
+
+                    <div class="box9">
+                        <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/">
+                            <img class="item-image" src="images/naver.jpg" alt="로그인"> </a></div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <footer id ="footerWrap">
+        <div class = "footer">
+            <div class="notice">
+                <h3>공지사항</h3></div>
+            <ul class="footInfo">
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">협업/제휴/협찬(문의:tetere@naver.com></a></li>
+            </ul>
+            <div class="foot">
+                <dl class="sns">
+                    <dt>sns</dt>
+                    <a href="#"><img src=images/fb_icon.png alt ="fb"></a>
+                    <a href="#"><img src=images/insta_icon.png alt ="insta"></a>
+                    <a href="#"><img src=images/ytb_icon.png alt ="tv"></a>
+                </dl>
+                <dl class="csCenter">
+                    <dt>고객센터</dt>
+                    <dd>전화문의
+                        <strong>1333-3333</strong></dd>
+                    <span>*월~금 10:00-17:00/점심13:00-14:00(토/일,공휴일은 휴무)</span>
+                    <span class="ps">(전화연결이 되지않을때에는 게시판으로 문의 부탁드립니다.)</span>
+
+                </dl>
+            </div>
+
+        </div>
+    </footer>
+</div>
+</body>
+</html>

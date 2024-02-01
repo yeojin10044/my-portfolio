@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
+  <title> :: COMPANY :: </title>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="companypage.css">
+
+  <script>
+
+      // //비디오 슬로건 요소 안에 넣기 위해 주석처리
+      //    $(document).ready(function () {
+      //      //동영상 재생 후 페이지 보이기
+      //      function playVideo() {
+      //        $("#video-container").fadeIn();
+      //        var video = $("#video")[0];
+      //
+      //        //브라우저 자동재생 정책 문제로 사용자 상호 작용 후 재생 가능
+      //        //사용자가 페이지 클릭 후 영상 재생
+      //        function playAfterInteraction(){
+      //          video.play();
+      //        }
+      //
+      //        // 더블클릭 시 동영상 종료 후 페이지로 이동
+      //        $(document).on("dblclick", function () {
+      //          // 동영상을 끝으로 이동시킴
+      //          video.currentTime = video.duration;
+      //
+      //          // 페이지를 보이게 하거나 다른 동작 수행
+      //          $("#video-container").fadeOut();
+      //          $("#main-container").fadeIn();
+      //        });
+      //
+      //          //동영상 종료 후 일정시간 뒤 페이지 보이기
+      //          setTimeout(function () {
+      //            $("#video-container").fadeOut();
+      //            $("#main-container").fadeIn();
+      //          }, 5000);// 5초 후 페이지로 전환
+      //
+      //          //사용자 상호 작용 후 이벤트 리스너 제거(이벤트가 한번만 발생하도록)
+      //          document.removeEventListener("mouseover", playAfterInteraction,{ once: true });
+      //        };
+      //
+      //
+      //      playVideo();
+      //  });
+
+      //타이틀 fadeIn
+      $(document).ready(function () {
+          $(".comp-title").animate({opacity: 1}, 3000);
+      });
+
+
+      //ceo txt 타이핑효과
+      document.addEventListener('DOMContentLoaded', function () {
+          const text = document.getElementById('typing-effect').innerText; // 기존텍스트 가져오기
+          const typingSpeed = 200; // 한 글자씩 표시하는 속도조절
+
+          let index = 0;
+          const typingContainer = document.getElementById('typing-effect');
+          typingContainer.innerText = ''; // 기존 텍스트 초기화
+
+          function type() {
+              if (index < text.length) {
+                  typingContainer.innerText += text.charAt(index);
+                  index++;
+                  setTimeout(type, typingSpeed);
+              } else {
+                  //타이핑 끝나면 index 리셋 후 다시 시작
+                  setTimeout(function () {
+                      typingContainer.innerText = '';
+                      index = 0;
+                      type();
+                  }, 2000); // 타이핑 완료 후 2초간 정지
+              }
+          }
+
+          // 페이지 로드 후 타이핑 효과 시작
+          type();
+      });
+
+      // //챗봇 열기_ver1.새창으로열기
+      //   $(document).ready(function () {
+      //     document.getElementById("chatbot").addEventListener("click", function () {
+      //       window.location.href = "chatbot_가현.html";
+      //     });
+      //   });
+
+      // // 챗봇 열기_ver2.플로팅(modal)
+      //    $(document).ready(function () {
+      //
+      //      document.getElementById("chatbot").addEventListener("click", function () {
+      //        //모달 보이기
+      //        // 외부 HTML 파일을 가져와서 모달 내의 chatbotContent에 추가
+      //        fetch('chatbot_가현.html')
+      //                .then(response => response.text())
+      //                .then(html => {
+      //                  document.getElementById('chatbotContent').innerHTML = html;
+      //                });
+      //
+      //        document.getElementById("chatbotModal").style.display = "block";
+      //      });
+      //
+      //      //모달 닫기 버튼 클릭 이벤트 처리
+      //      document.getElementById("closeModal").addEventListener("click", function () {
+      //        //모달 닫기
+      //        document.getElementById("chatbotModal").style.display = "none";
+      //      });
+      //
+      //    });
+      //
+
+      //챗봇 열기_ver3.(toggle)
+      function openChat() {
+          var chatFrame = document.getElementById('chatFrame');
+          chatFrame.classList.toggle('hidden');
+      }
+
+      function toggleChat() {
+          var chatFrame = document.getElementById('chatFrame');
+          chatFrame.classList.toggle('hidden');
+      }
+
+      // // ceo 이미지 mouseover 하면 유튜브영상 재생 ver.1
+      // $(document).ready(function () {
+      //     $('.CEOimage').on('mouseover', function () {
+      //         // CEO 이미지를 감추기
+      //         $(this).hide();
+      //         // 유튜브 영상 보이기
+      //         $('.youtube-video').fadeIn();
+      //     });
+      //
+      //    $('.youtube-video').on('mouseleave', function () {
+      //         //CEO 이미지 보이기
+      //       $('.CEOimage').show();
+      //       $(this).fadeOut();
+      //     });
+      // });
+
+
+   // 유튜브 영상 재생 ver.2
+   function showVideo() {
+          document.getElementById("youtubeVideo").style.display = "block";
+   }
+   function hideVideo() {
+          document.getElementById("youtubeVideo").style.display = "none";
+   }
+  </script>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <h1><a href="../jaewoo/HomePage_bak.html">NATIONAL<br>GEOGRAPH</a></h1>
+        <div class="search">
+            <input id="srch" type="text" value="검색">
+            <!--                <span>검색</span>-->
+      </div>
+
+      <div class="minNav">
+        <ul>
+          <li><a href="../여진/loginpage.html">LOGIN</a></li>
+          <li><a href="#">SIGNUP</a></li>
+          <li><a href="../jaewoo/mobile/newPage3.html">MOBILE</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav">
+
+      <div class="bar">
+        <ul>
+          <li><a href="company%20page.html">C O M P A N Y</a></li>
+          <li><a href="../현빈/NewProduct.html">S H O P</a></li>
+<!--          <li><a href="#">운동복</a></li>-->
+        </ul>
+      </div>
+    </div>
+
+    <div class="private">
+      <div class="comp-title">
+        <p>"NATIONAL GEOGRAPH" is...</p>
+      </div>
+      <!--정보제공란-->
+      <div class="content">
+          <div class="slogan">
+            <h3 class="tit1">
+              BRAND SLOGAN
+            </h3>
+            <div class="txt1">
+              <div id="video-container">
+                  <video id="video" width="100%" height="100%" autoplay muted loop>
+                      <source src="img/video_1.webm" type="video/webm">
+                      <!--    브라우저가 <video> 태그를 지원하지 않으면 아래 메세지 표시-->
+                      해당 브라우저에서는 동영상이 지원되지 않습니다.
+                  </video>
+              </div>
+              <h4>"IMPOSSIBLE IS NOTHING."<br>
+                  "ALL IN OR NOTING."</h4><br><br>
+              <p>
+                Neque porro quisquam est qui dolorem<br>
+                ipsum quia dolor sit amet,<br>
+                consectetur, adipisci velit...<br>
+                There is no one who loves pain itself,<br>
+                who seeks after it and wants to have it,<br>
+                simply because it is pain...
+              </p>
+
+            </div>
+          </div>
+
+          <!--연혁-->
+          <div class="history">
+            <h3 class="tit2">
+              BRAND HISTORY
+            </h3>
+            <div class="txt2">
+              <canvas id="historyChart" width="100" height="50"></canvas>
+              <p><br><br>BRAND REVENUE since start-up.<br><br>
+                Ut sit exposuere, maxibus rhonpit virna nec.<br>
+                Pellentesque feugiat dolor ante.<br>
+                Ate dictumopis ernicl emib, alipqin trueip sinpin vel.<br>
+                Morbi id justo blandit, fringilla orci vel.<br>
+                Nulla posuere enim ante, ac vulputate.<br>
+                Aliquam eget leo lacus.<br>
+                Maecenas eget cursus dui.</p>
+              </div>
+          </div>
+
+          <!--CEO-->
+          <div class="CEO">
+              <div class="youtube-container" onmouseover="showVideo()" onmouseout="hideVideo()">
+                <img src="img/ceoo.jpg" alt="CEO사진" class="CEOimage">
+                  <div id="youtubeVideo" class="youtube-video">
+                      <iframe
+                              width = "560"
+                              height = "315"
+                              src = "https://www.youtube.com/embed/_Q0M0zzlaxg?si=RZF-xdpePnifE3ad&amp;autoplay=1&mute=1&controls=0&loop=1&playlist=_Q0M0zzlaxg;start=15"
+                              title = "YouTube video player"
+                              frameborder = "0"
+                              allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowfullscreen>
+                      </iframe>
+                  </div>
+              </div>
+            <div class="txt3">
+                <div id="typing-effect">
+                  <span>HELLO! EVERYONE!</span>
+                </div>
+                <div id="txt3-content">
+                  <p><br>Praesent nec diam leo.<br>
+                  Maecenas aliquam arcu elementum, faucibus urna vel, viverra metus.<br><br>
+                  Duis quis tortor nec turpis tincidunt placerat.<br>
+                  Sed vestibulum sodales velit, ut facilisis turpis ultrices scelerisque.<br>
+                  Sed dictum odio ante, at fermentum justo elementum suscipit.<br>
+                  Maecenas eget cursus dui. Cras id eros id enim pharetra rhoncus.<br>
+                  Donec tincidunt neque sit amet eros maximus faucibus.<br><br>
+                  Etiam vel felis dolor.<br>
+                  Ut mauris sapien, suscipit et maximus vel, sagittis in urna.<br>
+                  Integer lobortis accumsan feugiat.<br>
+                  Morbi sit amet diam vitae lorem commodo ultricies.<br>
+                  Donec et posuere ex, vel posuere est. Sed euismod dictum pretium.
+                  </p>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+          <!------챗봇플로팅------>
+          <button type="button" id="chatbot" onclick="openChat()">
+
+              <img src="img/chatbot.png" width="50" height="50" alt="챗봇">
+             <!--팝업형태로 띄우는 코드-->
+            <!--onclick=window.open('chatbot_가현.html','_blank',"width=350,height=380,left=1500,top=150");>-->
+              <iframe id="chatFrame" src="chatbot_가현.html" class="hidden"></iframe>
+          </button>
+<!--        <div id="chatbotModal" class="modal">-->
+          <div id="chatbotContent" class="hidden"></div>
+<!--          <button id="closeModal">닫기</button>-->
+          <button onclick="toggleChat()">닫기</button>
+        </div>
+
+
+  </div>
+   <footer id ="footerWrap">
+     <div class = "footer">
+       <div class="notice">
+         <h3>공지사항</h3></div>
+       <ul class="footInfo">
+         <li><a href="#">이용약관</a></li>
+         <li><a href="#">개인정보처리방침</a></li>
+         <li><a href="#">협업/제휴/협찬(문의:tetere@naver.com></a></li>
+       </ul>
+       <div class="foot">
+         <dl class="sns">
+           <dt>sns</dt>
+           <a href="#"><img src=img/fb_icon.png alt ="fb"></a>
+           <a href="#"><img src=img/insta_icon.png alt ="insta"></a>
+           <a href="#"><img src=img/ytb_icon.png alt ="tv"></a>
+         </dl>
+         <dl class="csCenter">
+           <dt>고객센터</dt>
+           <dd>전화문의
+             <strong>1333-3333</strong></dd>
+           <span>*월~금 10:00-17:00/점심13:00-14:00(토/일,공휴일은 휴무)</span>
+           <span class="ps">(전화연결이 되지않을때에는 게시판으로 문의 부탁드립니다.)</span>
+
+         </dl>
+       </div>
+
+     </div>
+   </footer>
+
+<script>
+  //DOM이 완전히 로드 된 후에 스크립트 진행이 진행되도록 <body>의 끝에 위치
+  //HISTORY 차트
+
+  const data = [
+    { x: 2017, y: 98 },
+    { x: 2018, y: 156 },
+    { x: 2019, y: 232 },
+    { x: 2020, y: 260 },
+    { x: 2021, y: 286 },
+    { x: 2022, y: 354 },
+    { x: 2023, y: 439 }
+  ]
+
+
+
+  //데이터 랜덤하게 출력
+  // const data = [];
+  // let prev = 100;
+  //
+  // for (let i =0; i < 1000; i++) {
+  //   prev += (Math.random() < 0.5 ? 1 : -1) * Math.random() * 5;
+  //   data.push({ x : i, y : prev });
+  // }
+
+  const totalDuration = 5000; // 차트 애니매이션 지속 시간
+  const delayBetweenPoints = totalDuration / data.length; // 각 데이터 포인트간의 딜레이
+
+  const previousY = (ctx) => ctx.index ===0 ? ctx.chart.scales.y.getPixelForValue(100): ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
+
+  const animation ={
+    x: {
+      type: 'number',
+      easing: 'linear',
+      duration: delayBetweenPoints,
+      from: data[0].x,
+      delay(ctx) {
+        if (ctx.type !== 'data' || ctx.xStarted) {
+          return 0;
+        }
+        ctx.xStarted = true;
+        return ctx.index * delayBetweenPoints;
+      }
+    },
+    y: {
+      type: 'number',
+      easing: 'linear',
+      duration: delayBetweenPoints,
+      from: previousY,
+      delay(ctx) {
+        if (ctx.type !== 'data' || ctx.yStarted) {
+          return 0;
+        }
+        ctx.yStarted = true;
+        return ctx.index * delayBetweenPoints;
+      }
+    }
+  };
+
+  const config = {
+    type: 'line',
+    data: {
+      labels: ['2017', '2018', '2019','2020','2021','2022','2023'],
+      datasets: [{
+        borderColor: 'red',
+        borderWidth: 2,
+        radius: 0,
+        data: data,
+      }]
+    },
+    options: {
+      animation,
+      interaction: {
+        intersect: false
+      },
+      plugins: {
+        legend: false
+      },
+      scales: {
+        x: {
+          type: 'category',
+          ticks: {
+              color: 'white'
+           }
+          },
+          y: {
+            ticks: {
+                color: 'white'
+            }
+          }
+        },
+        y: {
+          min: 0,
+          max: 500,
+        }
+      }
+  };
+
+  // 차트 생성
+  const ctx = document.getElementById('historyChart').getContext('2d');
+  const historyChart = new Chart(ctx, config);
+</script>
+</body>
+</html>

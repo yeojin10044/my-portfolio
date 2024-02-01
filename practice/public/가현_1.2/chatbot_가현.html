@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> :: CHATBOT :: </title>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <style>
+
+        * {
+            color: white;
+            font-size: 13px;
+            font-family: 휴먼모음T;
+        }
+
+        .header {
+            /*margin: 20px auto;*/
+            /*padding: 10px;*/
+            width: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /*background-color: black;*/
+        }
+
+        #header-container {
+            width: 322px;
+            display: flex;
+            margin-bottom: -5px;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            flex-direction: column;
+            border-radius: 5px;
+        }
+
+        #header-img {
+            /*margin: 20px auto;*/
+            /*padding: 10px;*/
+            width: 200px;
+            /*display: flex;*/
+            align-items: center;
+            justify-content: center;
+            /*background-color: black;*/
+        }
+
+        #operation-hour {
+            background: none;
+            font-size: 10px;
+            text-align: left;
+        }
+
+        #chat-container {
+            width: 300px;
+            margin: 20px auto;
+            margin-top: 0;
+            /*border: 1px solid #ccc;*/
+            padding: 10px;
+            height: 300px;
+            /*overflow-y: auto;*/
+            overflow-y: scroll;
+            /*justify-content: center;*/
+            /*overflow-y: hidden;*/
+            background: linear-gradient(rgb(0, 0, 0, 0.8),  rgb(0, 0, 0, 0.4)), url("img/power.jpg");
+            background-size: contain;
+            /*background-color: #fc5794;*/
+        }
+
+        .Chatbot {
+            padding: 10px;
+            padding-left: 15px;
+            margin-bottom: 5px;
+            text-align: left;
+            border-radius: 15px/15px;
+            background-color: rgba(73, 73, 73, 0.6);
+        }
+
+        .user{
+            padding: 5px;
+            padding-right: 15px;
+            margin-bottom: 5px;
+            text-align: right;
+            border-radius: 15px/15px;
+            background-color: rgb(79, 97, 122);
+        }
+
+        .user-message {
+            white-space: pre-line; /* user: 줄바꿈 */
+        }
+
+        .option-button {
+            margin-top: 5px;
+            border-radius: 5px/5px;
+            background-color: #2a2a2a;
+        }
+    </style>
+</head>
+
+
+<body>
+<div class="header">
+
+    <div id="header-container">
+        <img src="img/brand_logo.PNG" id="header-img">
+        <p id="operation-hour">
+            <strong>운영시간</strong><br><br>
+            >월~금 10:00-17:00 <br>
+            >점심 13:00-14:00 (토/일,공휴일은 휴무)
+        </p>
+    </div>
+
+</div>
+    <div id="chat-container">
+        <div id="chat-output"></div>
+        <div id="options-container">
+            <!--초기옵션-->
+            <button class="option-button" onclick="sendUserChoice('상품문의')">상품문의</button>
+            <button class="option-button" onclick="sendUserChoice('배송문의')">배송조회</button>
+            <button class="option-button" onclick="sendUserChoice('기타문의')">기타문의</button>
+        </div>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+
+            const chatOutput = document.getElementById('chat-output');
+            const optionsContainer = document.getElementById('options-container');
+
+            //초기 선택 options
+            const options = ['상품문의', '배송문의', '기타문의'];
+
+            // 현재 선택된 옵션
+            let currentOption = '';
+
+            function appendMessage(sender, message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = sender;
+                messageDiv.innerHTML = `<strong>${sender}:</strong> <div class="user-message"> ${message}</div>`;
+                chatOutput.appendChild(messageDiv);
+
+                // 메세지 추가시 스크롤 아래로
+                $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
+            }
+
+            //초기메세지 출력
+            function showWelcomeMessage() {
+                appendMessage('Chatbot', '<br>NATIONAL GEOGRAPH입니다.' +
+                              '<br>무엇을 도와드릴까요?');
+                appendOptions(options);
+            }
+
+            // 사용자가 선택한 옵션에 따라 하위 옵션 생성
+            function appendOptions(subOptions) {
+                optionsContainer.innerHTML = ''; // 기존 버튼 초기화
+
+                //선택된 옵션이 '처음으로'가 아닌경우에만 추가 옵션 보여주기
+                if (currentOption !== '처음으로') {
+                    subOptions.forEach(option => {
+                        const button = document.createElement('button');
+                        button.textContent = option;
+                        button.className = 'option-button';
+                        button.onclick = () => sendUserChoice(option);
+                        optionsContainer.appendChild(button);
+                    });
+                }
+            }
+
+            function sendUserChoice(choice) {
+                appendMessage('user', choice);
+                processUserChoice(choice);
+            }
+
+            // //스크롤탑을 위한 위치수정
+            // //메세지  출력
+            // function appendMessage(sender, message) {
+            //     const messageDiv = document.createElement('div');
+            //     messageDiv.className = sender;
+            //     messageDiv.innerHTML = `<strong>${sender}:</strong> <div class="user-message" > ${message}</div>`;
+            //     chatOutput.appendChild(messageDiv);
+            //
+            //     chatOutput.scrollTop(chatOutput.prop('scrollHeight'));
+            // }
+
+            //사용자 선택에 따른 하위옵션 선택
+            function processUserChoice(choice) {
+                // setTimeout(function () {
+                  if (choice === '처음으로') {
+                        showWelcomeMessage(); // '처음으로' 선택 시 초기 메세지 출력
+                    } else {
+                        const botResponse = generateBotResponse(choice);
+                        //선택된 옵션에 따른 하위 옵션
+                        if (choice === '상품문의') {
+                            appendOptions(['사이즈', '상품정보','처음으로'])
+                            currentOption = '상품문의';
+                        } else if (choice === '배송문의') {
+                            appendOptions(['배송기간', '배송조회','처음으로'])
+                            currentOption = '배송문의'
+                        } else if (choice === '기타문의') {
+                            appendOptions(['교환/반품', '취소/환불','처음으로'])
+                            currentOption = '기타문의'
+                        }
+                        appendMessage('Chatbot', botResponse);
+                  };
+                // }, 500);
+            }
+
+            // 사용자의 선택에 따른 Chatbot의 응답
+            function generateBotResponse(userChoice) {
+                if (userChoice === '상품문의') {
+                    return '상품관련 어떤 걸 도와드릴까요?';
+                } else if (userChoice === '배송문의') {
+                    return '배송관련 어떤 걸 도와드릴까요?';
+                } else if (userChoice === '기타문의') {
+                    return '어떤 걸 도와드릴까요?';
+                }
+                return toLowerCase(userChoice);
+            }
+
+            function toLowerCase(option) {
+                let response = option;
+
+                if (option.toLowerCase() === '사이즈') {
+                    response = '사이즈 정보를 제공합니다.';
+                } else if (option.toLowerCase() === '상품정보') {
+                    response = '상품정보를 제공합니다.';
+                } else if (option.toLowerCase() === '배송기간') {
+                    response = '배송기간을 안내합니다.';
+                } else if (option.toLowerCase() === '배송조회') {
+                    response = '배송송장 정보를 제공합니다.';
+                }  else if (option.toLowerCase() === '교환/반품') {
+                    response = '교환/반품 정책 안내드립니다.';
+                }  else if (option.toLowerCase() === '취소/환불') {
+                    response = '취소/환불 정책 안내드립니다.';
+                }
+
+                const homeButton = document.createElement('button');
+                homeButton.textContent = '처음으로';
+                homeButton.className = 'option-button';
+                homeButton.onclick = () => sendUserChoice('처음으로');
+                optionsContainer.innerHTML = '';  // 기존 버튼 초기화
+                optionsContainer.appendChild(homeButton);
+
+                // appendMessage('Chatbot',response)
+                return response;
+            }
+
+            //페이지 로딩 후 초기 메세지 보이기
+            showWelcomeMessage();
+        });
+
+    </script>
+
+</body>
+</html>

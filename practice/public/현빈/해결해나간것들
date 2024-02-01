@@ -1,0 +1,61 @@
+
+
+첫 번째.
+
+페이지내에서 스크롤을 내렸을때 상단 카테고리바가 위로올라가서 header부분을 밀어내고 최상단을 차지하는걸
+하고싶었는데
+윈도우의 스크롤이벤트 에 대한 함수를 정의하고
+현재 스크롤 위치를 scroll 변수에 저장하고 var scroll = $(window).scrollTop();
+스크롤이 100보다 크다면 (현재스크롤이 100을 넘어갔다면)
+
+header를 top으로 부터 -100px
+menu를 top으로 부터 0의 위치로옮겨서 맨위로 붙히고
+사이드바 를 오른쪽에서 0만큼 나오게한다.
+
+else 100이상이 아니라면
+
+원위치로
+
+두 번째.
+
+ var sideMenu라는 변수를 만들어서 $("#product_side_menu");할당하고
+
+ var scrollTrigger 변수를 만들어 1500이라는값을 할당
+
+ 윈도우 스크롤이벤트에대한 함수를 정의하고
+
+ scrollPosition이라는 변수에  $(window).scrollTop(); 넣어서 현재 스크롤위치를 넣어줌.
+
+scrollPosition이 scrollTrigger보다 크면
+사이드메뉴는
+스크롤 트리거만큼 내려가게해서 현재 레이아웃을 유지하고
+
+1500보다 더 내려가는경우엔
+
+top 286px인 처음위치에 고정한다.
+
+챗봇도 같은 방식으로 일정이상 내려갔을때
+원래있던곳으로 가게 함.
+
+세 번째
+애프터딜리버리를 클릭했을때
+비포딜리버리를 안보이게 하고
+messageAction1_1을 보이게 flex
+
+
+네 번째
+
+  document.getElementById('afterDelivery').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
+    });
+
+    버튼을 클릭했을때 박스 최하단에 오게하는 코드
+
+
+
+
+
+
+

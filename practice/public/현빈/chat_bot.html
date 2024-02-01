@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatBot</title>
+<!--    <link rel="stylesheet" href="styles.css">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+</head>
+<style>
+    *{
+        list-style: none;
+        text-decoration: none;
+    }
+    @font-face {
+        font-family: abster;
+        src: url("font/abster-webfont.woff") format("woff");
+    }
+
+    #HomeHeader h1{
+        font-family: abster;
+    }
+    body {
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    .mainChatContainer {
+        /*display: flex;*/
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        width: 400px;
+
+    }
+
+    .chatBox1{
+        width: 400PX; /* 전체 화면의 80% 차지 */
+        /*max-width: 700px; !* 최대 너비 설정 *!*/
+        height: 600px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+
+    #HomeHeader {
+        width: 100%;
+        background: linear-gradient(rgb(0, 0, 0, 0.8),  rgb(0, 0, 0, 0.4)), url("images/power.jpg")fixed;
+        color: #fff;
+        padding: 10px;
+        text-align: left;
+        font-size: 10px;
+        height: 110px;
+    }
+
+
+    .HomeBody {
+        padding: 10px;
+        max-height: 300px;
+        overflow-y: auto;
+        background-color: #ffffff;
+    }
+
+    .chatMessage {
+        margin-bottom: 10px;
+        padding: 8px;
+        border-radius: 5px;
+
+    }
+    .chatBody{
+        width: 300px;
+        height: 400px;
+    }
+
+    .chatMessageUser {
+        max-height: 400px;
+        max-width: 100px;
+        background-color: #ffffff;
+        color: black;
+        text-align: left;
+    }
+    .welcomeChatIcTxt{
+        display: flex;
+        background-color: #1e1515;
+        border-radius: 20px;
+        padding: 10px;
+
+    }
+
+    .welcomeChatMessageBot {
+        border-radius: 10px;
+        padding: 0;
+        height: 180px;
+        width: 250px;
+        /*background-color: #1e1515;*/
+        color: #ffffff;
+        /*text-align: left;*/
+
+    }
+
+    .welcomeChatIcon{
+        background-color: #1e1515;
+        margin: 0;
+        padding: 0;
+        width: 50px;
+        height: 270px;
+
+
+    }
+    .welcomeChatIcon img{
+        width: 50px;
+    }
+
+    .inquiryButton {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 280px;
+        height: 30px;
+        justify-content: center;
+        padding: 5px;
+        background-color: white;
+        color: black;
+        border-radius: 20px;
+        left: -20px;
+        top: 50px;
+        cursor: pointer;
+    }
+    .homeButton a:hover{
+        color: red;
+    }
+    .homeButton a:visited{
+        color: black;
+
+
+    }
+    .user_choice{
+        width: 400PX;
+        height: 80px;
+        background-color: #ffffff;
+        position: relative;
+        top: 40px;
+        left: 50px;
+    }
+    .user_choice ul{
+        position: relative;
+        display: flex;
+        /*margin: 50px;*/
+        /*width: 80%;*/
+        padding: 0;
+    }
+    .user_choice ul li{
+        display: flex;
+        margin-left:140px;
+        padding: 0;
+        position: relative;
+        left: -150px;
+    }
+    .user_choice ul li img{
+        position: relative;
+        left: -100px;
+        width: 30px;
+        height: 30px;
+        color: white;
+    }
+
+    .user_choice ul li a{
+        color: #1e1515;
+        position: relative;
+        left: 150px;
+
+
+        /*display: inline-block;*/
+        /*margin-left: 50px;*/
+    }
+    .home1{
+        color: #1e1515;
+        position: absolute;
+        top: 50px;
+        left: 47px;
+    }
+    .home2{
+        color: #1e1515;
+        position: absolute;
+        top: 50px;
+        left: 210px;
+
+    }
+
+    /*chatbox2 작성은 여기서 부터-------------------------------*/
+    #chatBox2 {
+        width: 400px;
+        height: 600px;
+        background-color:#efefef;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow-y: auto;
+        display: none;
+    }
+    #goBackButton1 img{
+        width: 30px;
+        height: 30px;
+        padding: 0;
+    }
+    .headerCb2{
+        display: flex;
+        background-color:#333435;
+        color: white;
+    }
+
+    .cb2Icon{
+        width: 40px;
+        height: 40px;
+    }
+    .cb2title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        left: 40px;
+    }
+    .cb2Channel{
+        display: flex;
+        height: 200px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cb2BigIcon{
+        border: 2px solid black;
+        border-radius: 30px;
+        width: 80px;
+        height: 80px;
+        position: relative;
+        left: 100px;
+    }
+    .cb2ChannelTitle{
+        position: relative;
+        top: 60px;
+        right: 50px;
+    }
+    #textContainer {
+        position: relative;
+        left: 30px;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        text-align: left;
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+    }
+    .messageAction1{
+        position: relative;
+        top: 5px;
+        height: 100px;
+        text-align: right;
+        justify-content: center;
+        background-color: #efefef;
+        width: 350px;
+    }
+    #beforeDelivery{
+        padding: 9px 13px;
+        border-radius: 10px;
+
+    }
+    #afterDelivery{
+        padding: 9px 13px;
+        border-radius: 10px;
+    }
+
+    #beforeDelivery.clicked{
+        background-color: black;
+        color: white;}
+    /*               버튼을 눌렀을때 눌림처리 효과를 하기위해 색상을 변경하는 CSS          -->*/
+    #afterDelivery.clicked{
+        background-color: black;
+        color: white;
+    }
+    /*---------------------배송후 버튼 누르면 나오는 버튼들 */
+    .messageAction1_1 {
+        position: relative;
+        top: 150px;
+        height: 250px;
+        background-color:#efefef;
+        /*display: flex;*/
+        flex-direction: column;
+        align-items: center;
+        /*justify-content: space-between;*/
+        margin: 0
+    }
+
+    #returnOption,
+    #changeOption,
+    #backToFirst {
+        padding: 9px 13px;
+        border-radius: 10px;
+        margin: 5px; /* 아래에 여백 추가 */
+    }
+    #changeOption{
+        position: relative;
+        left: 118px;
+        top: -50px;
+    }
+    #returnOption{
+        position: relative;
+        left: 20px;
+    }
+
+
+    #backToFirst{
+        position: relative;
+        top: -50px;
+        left: 90px;
+    }
+    #returnOption.clicked{
+        background-color: black;
+        color: white;
+        position: relative;
+        left: 115px;
+    }
+    #changeOption.clicked{
+        background-color: black;
+        color: white;
+        position:relative;
+        left: 118px;
+        top: 0;
+    }
+
+
+
+    .messageAction1_2 {
+        position: relative;
+        top: 550px;
+        height: 250px;
+        background-color:#efefef;
+        flex-direction: column;
+        align-items: center;
+    }
+    #cancelCredit{
+        padding: 9px 13px;
+        border-radius: 10px;
+        position: relative;
+        left: 115px;
+    }
+    #cancelCredit.clicked{
+        background-color: black;
+        color: white;
+        position: relative;
+        left: 115px;
+    }
+
+
+    .messageAction1_3 {
+        position: relative;
+        top: 550px;
+        height: 250px;
+        background-color:#efefef;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #anotherItem{
+        padding: 9px 13px;
+        border-radius: 10px;
+        position: relative;
+        left: 87px;
+    }
+    #anotherItem.clicked{
+        background-color: black;
+        color: white;
+        position: relative;
+        left: 87px;
+    }
+
+
+
+    /*-----------------------배송후 버튼 누르면 나오는 버튼들 */
+
+    /*========================배송전 버튼 누르면 나오는 버튼들 ===========================*/
+    .messageAction1_4 {
+        position: relative;
+        top: 300px;
+        height: 250px;
+        background-color:#efefef;
+        flex-direction: column;
+        align-items: center;
+    }
+    #deliverOption{
+        padding: 9px 13px;
+        border-radius: 10px;
+        position: relative;
+        left: 25px;
+
+
+    }
+
+    #switchOption{
+        padding: 9px 13px;
+        border-radius: 10px;
+        position: relative;
+        left: 117px;
+        top: -38px;
+
+    }
+
+    #backToFirst2{
+        padding: 9px 13px;
+        border-radius: 10px;
+        position: relative;
+        left: 90px;
+        top: -30px;
+
+    }
+    #deliverOption.clicked{
+        background-color: black;
+        color: white;
+        position: relative;
+        left: 117px;
+    }
+    #switchOption.clicked{
+        background-color: black;
+        color: white;
+        top: 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*-==========================배송전 버튼 누르면 나오는 버튼들========================*/
+    #textContainer {
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        width: 300px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: white;
+    }
+
+    #textContainer2{
+        /*overflow-y: scroll;*/
+        position: relative;
+        left: 30px;
+        white-space: nowrap;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        width: 300px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: white;
+        top: -280px;
+        border-radius: 10px;
+
+    }
+    #textContainer3{
+        position: relative;
+        left: 30px;
+        white-space: nowrap;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        top: -220px;
+        border-radius: 10px;
+
+    }
+    #textContainer4{
+        position: relative;
+        left: 30px;
+        white-space: nowrap;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        width: 300px;
+        padding: 10px;
+        height: 200px;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        top: -150px;
+        border-radius: 10px;
+
+    }
+    #textContainer5{
+        position: relative;
+        left: 30px;
+        white-space: nowrap;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        width: 300px;
+        padding: 10px;
+        height: 300px;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        top: -220px;
+        border-radius: 10px;
+
+    }
+    #textContainer6{
+        position: relative;
+        left: -315px;
+        white-space: nowrap;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        width: 300px;
+        padding: 10px;
+        height: 300px;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        top: 400px;
+        border-radius: 10px;
+
+    }
+    #textContainer7{
+        position: relative;
+        left: 29px;
+        white-space: nowrap;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        width: 300px;
+        padding: 10px;
+        height: 300px;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        top: -280px;
+        border-radius: 10px;
+
+    }
+    #textContainer8{
+        position: relative;
+        left: 25px;
+        white-space: nowrap;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        width: 300px;
+        padding: 10px;
+        height: 300px;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        top: -230px;
+        border-radius: 10px;
+
+    }
+    #textContainer9{
+        position: relative;
+        left: 25px;
+        white-space: nowrap;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        width: 300px;
+        padding: 10px;
+        height: 300px;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        top: -230px;
+        border-radius: 10px;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*chatbox2 작성은 여기까지-------------------------------*/
+
+
+    .inputBox{
+        text-decoration: none;
+        width: 300px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 40px;
+        top: -270px;
+    }
+    #name{
+        position: relative;
+        top: -8px;
+        left: 2px;
+    }
+    .inputName{
+        border: 1px solid;
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+    }
+
+    .phoneNumBox{
+        position: relative;
+        top: 13px;
+    }
+    #num{
+        position: relative;
+        top: -8px;
+        left: 2px;
+    }
+    .inputNum{
+        border: 1px solid;
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+    }
+    #save{
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+        position: relative;
+        top: 25px; }
+    /*===============================인풋박스 1 여기까지 =======================================*/
+
+    form {
+        text-decoration: none;
+        width: 300px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 30px;
+        top: 100px;
+    }
+    #name2{
+        position: relative;
+        top: -8px;
+        left: 2px;
+    }
+    #beforeItem{
+        position: relative;
+        top: -8px;
+        left: 2px;
+    }
+    #wtChangeItem{
+        position: relative;
+        top: -1px;
+        left: 2px;
+    }
+    .inputName2{
+        border: 1px solid;
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+    }
+
+    .beforeItemBox{
+        position: relative;
+        top: 13px;
+    }
+    .changeBox{
+        position: relative;
+        top: 17px;
+    }
+    #num{
+        position: relative;
+        top: -8px;
+        left: 2px;
+    }
+    .inputSize{
+        border: 1px solid;
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+    }
+    #save2{
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+        position: relative;
+        top: 25px; }
+
+    /*==========================인풋 박스2 여기까지 =========================================*/
+
+    .inputBox3 {
+        text-decoration: none;
+        width: 300px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 30px;
+        top: -320px;
+    }
+    #name3{
+        position: relative;
+        top: -8px;
+        left: 2px;
+    }
+    #num2{
+        position: relative;
+        top: -8px;
+        left: 2px;
+    }
+    #address{
+        position: relative;
+        top: 20px;
+        left: 2px;
+    }
+    .inputName2{
+        border: 1px solid;
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+    }
+
+    .beforeItemBox{
+        position: relative;
+        top: 13px;
+    }
+    .phoneNumBox2{
+        position: relative;
+        top: 17px;
+    }
+    #num2{
+        position: relative;
+        top: -8px;
+        left: 2px;
+    }
+    .inputnum2{
+        border: 1px solid;
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+    }
+    .address{
+        position: relative;
+        top: 25px;
+        border: 1px solid;
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+    }
+    #save3{
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+        position: relative;
+        top: 35px; }
+    /*=======================인풋 박스 3여기까지 =========================================*/
+
+
+
+    /*======================anotherChatBot=====================================*/
+
+
+    /*======================anotherChatBot여기까지================================================*/
+
+
+</style>
+<body>
+
+<div class="mainChatContainer">
+    <div class="chatBox1" id="chatBox1">
+        <div id="HomeHeader" class="section" >
+
+            <h1 class = "brandTitle">NATIONAL GEOGRAPH</h1>
+            <span>운영시간 보기</span>
+        </div>
+        <div class="HomeBody" id="HomeBody">
+            <div class="chatMessageBody">
+                <div class="welcomeChatIcTxt">
+                <div class="welcomeChatIcon">
+                    <img src="images/NG_icon.jpg" alt="웰컴 아이콘">
+                </div>
+            <div class="welcomeChatMessageBot">
+                안녕하세요.<br>
+                NATHIONAL GEOGRAPH 입니다!.<br>
+
+                문의 내용을 선택해주세요! :)<br>
+
+                상담 운영 시간<br>
+                월~금: 10:00 - 17:00<br>
+                (휴게시간 12:00 - 13:00)<br>
+                주말 및 공휴일: 휴무<br>
+
+                주말,공휴일,휴게시간에는<br>
+                상담이 불가하며<br>
+                운영시간외에는 <br>
+                순차적으로 도와드리겠습니다.<br>
+
+                <div class="inquiryButton" onclick="loadText()">
+                    <a  href="#" id ="inquiryLink">문의하기</a></div>
+            </div>
+
+        </div>
+        </div>
+
+        </div>
+        <nav class="user_choice">
+            <ul>
+                <li><a href="#" data-section="chatBox"><img class="login"  src ="images/login_icon.png" alt ="홈 이미지"></a></li>
+                <a href="/여진/loginpage.html"><span class="home1">로그인</span></a>
+                <li><a href="#" data-section="chat_section">
+                    <img src ="images/bottom_chat_icon.png" alt ="대화 이미지"></a></li>
+                <a href="anotherChatBot.html" id ="chatLink" ><span class="home2">대화</span></a>
+            </ul>
+        </nav>
+    </div> <!-- chatBox1끝 -->
+
+
+
+
+    <div class="chatBox2" id="chatBox2"><!-- chatBox2 시작 -->
+        <header class="headerCb2">
+            <button id="goBackButton1">
+                <img src="images/goBack.png" alt="뒤로가기">
+            </button>
+            <img class= "cb2Icon" src="images/NG_icon.jpg" alt="아이콘">
+            <div class="cb2title">NATIONAL GEOGRAPH</div>
+
+        </header>
+        <div class="cb2Channel">
+            <img class="cb2BigIcon" src="images/NG_icon.jpg" alt="빅아이콘">
+            <div class="cb2ChannelTitle">NATIONAL GEOGRAPH에 문의하기</div>
+            <!-- chatBox2의 내용을 추가하세요 (필요에 따라) -->
+        </div>
+<!--        <div class="timeDevide">-->
+
+            <div id="textContainer"></div>
+
+            <div class="messageAction1">
+                <button id="beforeDelivery">배송 전</button>
+                <button onclick="addText()" id="afterDelivery">배송 후</button>
+            </div>
+            <div class="messageAction1_1" style="display: none;">             <!-- 배송 후 버튼 누르면 나오는 버튼-->
+                <button onclick="addText2()" id="returnOption">반품 문의</button><!-- 배송 후 버튼 누르면 나오는 버튼-->
+                <button id="changeOption">교환 문의</button><!-- 배송 후 버튼 누르면 나오는 버튼-->
+
+                <button id="backToFirst">처음으로 돌아가기</button><!-- 배송 후 버튼 누르면 나오는 버튼-->
+            </div>
+        <div class="messageAction1_2" style="display: none;">
+            <button  id ="cancelCredit">카드 취소</button><!-- 배송 후 버튼 누르면 나오는 버튼-->
+        </div>
+        <div class="messageAction1_3" style="display: none">
+            <button id="anotherItem">다른 상품으로 교환</button><!-- 배송 후 버튼 누르면 나오는 버튼-->
+        </div>
+        <div class="messageAction1_4" style="display: none">
+            <button id="deliverOption">배송 문의</button>
+            <button id="switchOption">변경 문의</button>
+            <button id="backToFirst2">처음으로 돌아가기</button>
+        </div>
+
+
+
+
+<!--        </div>-->
+        <div id="textContainer2" style="display: none"></div>  <!-- 배송후 버튼 누르고 나오는 텍스트-->
+        <div id="textContainer3" style="display: none">
+            먼저 수령하신 상품이 만족스럽지 못하여<br>
+                     불편드린점 죄송합니다.<br>
+                     (회수택배는 자동으로 예약되지않습니다.)<br>
+                     교환&반품택배 안내드린 우체국택배 ARS로 <br>
+                     착불 반품예약하신후 보내주세요<br>
+                     상품은 착용하지않은 새제품으로<br>
+                     입고되어야하며 상품이 포장된 비닐과<br>
+                      비닐에 부착된 상품명<br>
+                      바코드 함께 보내지 않으실경우 <br>
+                     </br>교환&반품진행이 어렵습니다.<br>
+                 -반품주소지:<br>
+                 (02000)서울00구00로271(00동)<br>
+                 서울 00우체국'// 원하는 텍스트
+
+        </div> <!-- 반품 문의 버튼 누르고 나오는 텍스트-->
+        <div id="textContainer4" style="display: none"> <!-- 카드 취소 버튼 누르고 나오는 텍스트-->
+            안녕하세요 고객님!<br>
+
+            카드 취소 도와드리겠습니다.<br>
+
+            아래 항목 적어주시면 상담사에게<br>
+            빠르게 전달하겠습니다.
+            </div>
+        <div id="textContainer5" style="display: none"> <!-- 교환 문의 버튼 누르고 나오는 텍스트-->
+            안녕하세요 고객님!<br>
+            먼저 만족스러운 서비스를 <br>
+            못드린 것 같아 죄송합니다<br>
+            번거로우시더라도 꼭 <br>
+            읽어주시기 바랍니다!<br>
+            교환/반품 신청서에 교환/반품사유를<br>
+            ★자세하게 작성 후★ 동봉해주셔야하며<br>
+            *우체국택배*로 택배신청하시어 <br>
+            *꼭* 착불로 상품을 보내주시기 바랍니다.<br>
+
+            -반품주소지:<br>
+            (02000) 서울 00구 00로 271 (00동),<br>
+            서울 00우체국<br>
+            -교환/반품신청서 없는경우:<br>
+            깨끗한 종이에 주문자 성함 및 연락처,<br>
+            반품사유, 예치금 적립여부, 교환 상품등 기재
+            <div id="textContainer6" style="display: none"> <!--다른 상품으로 교환 버튼 누르면 나오는 텍스트 -->
+                안녕하세요 고객님!<br>
+                먼저,받으신 상품이 마음이<br>
+                만족스럽지 못한 점<br>
+                죄송합니다.<br>
+                번거로우시더라도<br>
+                아래 항목 작성 부탁드립니다.<br>
+
+            </div>
+
+
+        </div>
+        <div id="textContainer7"style="display: none"> <!-- 배송 전 버튼 누르면 나오는 텍스트 -->
+            안녕하세요 궁금하신 버튼을<br>
+            클릭해주세요.<br>
+
+            상담 운영 시간<br>
+
+            월~금: 10:00 - 17:00<br>
+            (휴게시간 12:00 - 13:00)<br>
+            주말 및 공휴일: 휴무<br>
+        </div>
+        <div id="textContainer8" style="display: none"> <!-- 배송문의 버튼 누르면 나오는 텍스트 -->
+            안녕하세요 고객님<br>
+            NATHIONAL GEOGRAPH 의 <br>
+            모든 주문은 당일 발송되고 있습니다<br>
+            (지연상품 , 제작 지연상품 제외입니다)<br>
+            지연 상품인 경우 입고 여부를<br>
+            체크하여 연락 드리겠습니다.<br>
+            조금 더 자세한 일정은 주문해<br>
+            주신 뒤에 문의를 남겨주세요!<br>
+            상품의 지연이나 입고 여부를<br>
+            체크해 순번에 맞게 안내드리겠습니다:)<br>
+
+        </div>
+        <div id="textContainer9" style="display: none"> <!--변경문의 버튼 누르면 나오는 텍스트 -->
+            안녕하세요 고객님!<br>
+            연락처/ 주소 변경을 원하시는군요!<br>
+            아래 형식에 맞춰서<br>
+            적어주시면 상담원에게 전달하겠습니다.<br>
+            감사합니다 :)<br>
+        </div>
+
+
+
+
+<!-- ================================인풋 박스 =========================== -->
+        <form class="inputBox" style="display: none">
+            <div class="nameBox">
+                <label id="name">성함</label>
+                <div class="textField1">
+                    <input type="text" class="inputName" placeholder="입력하세요">
+                </div>
+            </div>
+            <div class="phoneNumBox">
+                <label id="num">전화번호</label>
+                <div class="textField2">
+                    <input type="text" class="inputNum" placeholder="입력하세요">
+                </div>
+            </div>
+            <button id="save">저장</button>
+        </form>
+
+        <form class="inputBox2" style="display: none">
+            <div class="nameBox">
+                <label id="name2">성함</label>
+                <div class="textField1">
+                    <input type="text" class="inputName2" placeholder="입력하세요">
+                </div>
+            </div>
+            <div class="beforeItemBox">
+                <label id="beforeItem">이전 상품명/사이즈</label>
+                <div class="textField2">
+                    <input type="text" class="inputSize" placeholder="입력하세요">
+                </div>
+            </div>
+            <div class="changeBox">
+                <label id="wtChangeItem">이전 상품명/사이즈</label>
+                <div class="textField2">
+                    <input type="text" class="inputSize" placeholder="입력하세요">
+                </div>
+            </div>
+            <button id="save2">저장</button>
+        </form>
+        <form class="inputBox3" style="display: none">
+            <div class="nameBox">
+                <label id="name3">성함</label>
+                <div class="textField1">
+                    <input type="text" class="inputName2" placeholder="입력하세요">
+                </div>
+            </div>
+            <div class="phoneNumBox2">
+                <label id="num2">전화번호</label>
+                <div class="textField2">
+                    <input type="text" class="inputnum2" placeholder="입력하세요">
+                </div>
+            </div>
+            <div class="addressNum">
+                <label id="address">변경하실연락처/주소</label>
+                <div class="textField2">
+                    <input type="text" class="address" placeholder="입력하세요">
+                </div>
+            </div>
+            <button id="save3">저장</button>
+        </form>
+
+</div><!-- chatBox2 끝 -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<script>
+    $(document).ready(function () {
+        $("#inquiryButton").click(function () {
+            $("#chatBox2").toggle();
+        });
+    });
+
+</script>
+<script>
+    document.getElementById('inquiryLink').addEventListener('click', function () {
+        // chatBox1 제거
+        document.getElementById('chatBox1').remove();
+        document.get
+
+
+        // chatBox2 추가 및 표시
+        var chatBox2 = document.getElementById('chatBox2');
+        chatBox2.style.display = 'block';
+
+    });
+
+    document.getElementById('goBackButton1').addEventListener('click', function () {
+        // 페이지를 다시 로드하여 초기화
+        location.reload();
+    });
+
+
+
+
+    document.getElementById('chatLink').addEventListener('click', function () {
+        // chatBox1 제거
+        document.getElementById('chatBox1').remove();
+        <!----------------chatbox를 특정버튼을 클릭할때마다 추가하며 기존것을 지워주는 코드--------------  -->
+
+
+        // chatBox2 추가 및 표시
+        var chatBox3 = document.getElementById('anotherChatBot');
+        chatBox3.style.display = 'block';
+
+        document.getElementById('goBackButton2').addEventListener('click', function () {
+            // 페이지를 다시 로드하여 초기화
+            location.reload();
+        });
+        document.getElementById('goBackButton2').addEventListener('click', function () {
+            // 페이지를 다시 로드하여 초기화
+            location.reload();
+        });
+
+    });
+
+    document.getElementById('afterDelivery').addEventListener('click', function () {
+        // messageAction1 숨기고 messageAction1_1 표시
+        document.querySelector('#beforeDelivery').style.display = 'none';
+        document.querySelector('.messageAction1_1').style.display = 'flex';
+        this.classList.add('clicked');
+    });<!--배송 후 버튼을 누르면 배송 전 버튼이 사라지고 messageAction1_1이 나오는 코드 -->
+
+
+
+    document.getElementById('returnOption').addEventListener('click', function () {
+        document.querySelector('#changeOption').style.display = 'none';
+        document.querySelector('#backToFirst').style.display = 'none';
+        document.querySelector('.messageAction1_2').style.display = 'flex';
+        document.querySelector('#textContainer3').style.display = 'flex';
+
+
+        this.classList.add('clicked');
+        });<!--반품문의 버튼누르면 나머지버튼이 사라지는 코드-->
+
+
+    document.getElementById('changeOption').addEventListener('click', function () {
+        document.querySelector('#returnOption').style.display = 'none';
+        document.querySelector('#backToFirst').style.display = 'none';
+        document.querySelector('#textContainer5').style.display = 'flex';
+        document.querySelector('.messageAction1_3').style.display = 'flex';
+        this.classList.add('clicked');
+
+        this.classList.add('clicked');
+    });<!--환불문의 버튼누르면 나머지버튼이 사라지는 코드-->
+    document.getElementById('cancelCredit').addEventListener('click',function (){
+        document.querySelector('#textContainer4').style.display ='flex';
+        document.querySelector('.inputBox').style.display ='flex';
+        this.classList.add('clicked');
+
+
+
+
+    })
+    document.getElementById('anotherItem').addEventListener('click',function (){
+        document.querySelector('#textContainer6').style.display ='flex';
+        document.querySelector('.inputBox2').style.display ='flex';
+        this.classList.add('clicked');
+
+
+
+
+
+
+    })
+    document.getElementById('beforeDelivery').addEventListener('click',function (){
+        document.querySelector('#textContainer7').style.display ='flex';
+        document.querySelector('.messageAction1_4').style.display ='flex';
+
+        this.classList.add('clicked');
+
+
+
+
+
+
+    })
+    document.getElementById('beforeDelivery').addEventListener('click',function (){
+        document.querySelector('#textContainer7').style.display ='flex';
+        document.querySelector('.messageAction1_4').style.display ='flex';
+
+        this.classList.add('clicked');
+
+
+
+
+
+
+    })
+
+    document.getElementById('deliverOption').addEventListener('click',function (){
+        document.querySelector('#textContainer8').style.display ='flex';
+        document.querySelector('#switchOption').style.display ='none';
+        document.querySelector('#backToFirst2').style.display ='none';
+
+        this.classList.add('clicked');
+
+
+
+
+
+
+    })
+
+    document.getElementById('switchOption').addEventListener('click',function (){
+        document.querySelector('#textContainer9').style.display ='flex';
+        document.querySelector('.inputBox3').style.display ='flex';
+        document.querySelector('#deliverOption').style.display ='none';
+        document.querySelector('#backToFirst2').style.display ='none';
+
+        this.classList.add('clicked');
+
+
+
+
+
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.addEventListener('DOMContentLoaded',function (){
+        const textContainer = document.getElementById('textContainer');
+        const text =  '안녕하세요 궁금하신 버튼을 ' +
+            '클릭해주세요.<br>' +
+            '상담 운영 시간<br></br>' +
+            '월~금: 10:00 - 17:00<br>' +
+            '(휴게시간 12:00 - 13:00)<br>' +
+            '주말 및 공휴일: 휴무';
+        let index = 0
+
+        function animateText() {
+            textContainer.innerHTML = text.slice(0, index);
+            index++;
+
+            if (index <= text.length) {
+                setTimeout(animateText, 30); // Delay between each character (adjust as needed)
+            }
+
+        }
+             animateText();
+
+        });
+    function addText() {
+        const scrollContainer = document.getElementById('textContainer2');
+        const newTextContainer = document.createElement('div');
+        newTextContainer.classList.add('text-container');
+        scrollContainer.appendChild(newTextContainer);
+        var textContainer2 = document.getElementById('textContainer2');
+        textContainer2.style.display = 'block';
+
+        const text1= '안녕하세요 궁금하신 버튼을<br>' +
+            ' 클릭해주세요.<br>' +
+            '<br>' +
+            '상담 운영 시간<br></br>' +
+            '월~금: 10:00 - 17:00<br>' +
+            '(휴게시간 12:00 - 13:00)<br>' +
+            '주말 및 공휴일: 휴무<br> '; // 원하는 텍스트
+
+        newTextContainer.innerHTML = text1;
+
+
+    }
+
+
+
+
+
+    document.getElementById('afterDelivery').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
+    });
+    document.getElementById('beforeDelivery').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
+    });
+    document.getElementById('deliverOption').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
+    });
+
+    document.getElementById('switchOption').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop += 350;
+    });
+    document.getElementById('changeOption').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
+    });
+    document.getElementById('anotherItem').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop += 375;
+    });
+    document.getElementById('returnOption').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop = $('#chatBox2').prop('scrollHeight')
+    });
+    document.getElementById('cancelCredit').addEventListener('click',function (){
+
+
+        $('#chatBox2')[0].scrollTop += 375;
+    });
+
+
+
+
+
+
+
+
+
+
+    document.getElementById('backToFirst').addEventListener('click', function () {
+        // 페이지를 다시 로드하여 초기화
+        location.reload();
+    });
+    document.getElementById('backToFirst2').addEventListener('click', function () {
+        // 페이지를 다시 로드하여 초기화
+        location.reload();
+    });
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
